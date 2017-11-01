@@ -15,4 +15,10 @@ class Cueva
     def IsAvaiableDoorSouth
         return @DoorSouth
     end
+    def ShowDoorEast(boolean)
+        @DoorEast=true
+    end
+    def IsAvaiableDoorEast
+        return @DoorEast
+    end
 end
