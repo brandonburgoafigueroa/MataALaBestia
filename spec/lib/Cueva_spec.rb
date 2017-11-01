@@ -8,4 +8,8 @@ describe Cueva do
         @cueva.ShowDoorNorth(true)
         expect(@cueva.IsAvaiableDoorNorth).to eq true
     end
+    it "Si escribo true en la puerta sud y verifico si la puerta sud esta disponible deberia devolver true" do
+        @cueva.ShowDoorSouth(true)
+        expect(@cueva.IsAvaiableDoorSouth).to eq true
+    end
 end
