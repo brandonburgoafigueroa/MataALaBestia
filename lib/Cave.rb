@@ -1,4 +1,4 @@
-class Cueva
+class Cave
    
     def initialize
         @DoorNorth=false
