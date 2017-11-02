@@ -15,4 +15,5 @@ describe Map do
         @map.CreateCave(0, 1)
         expect(@map.AssignMonster(0, 1, true)).to eq "Monstruo agregado"
     end
+    
 end

@@ -8,6 +8,7 @@ class Cave
         @Person=nil
         @Arrows=0
         @Monster=nil
+        @NumberOfCave=0
     end
     def ShowDoorNorth(option)
         @DoorNorth=option
@@ -40,5 +41,9 @@ class Cave
     def AddMonster(monster)
         @Monster=monster
         return "Monstruo agregado"
+    end
+    def AddNumberOfCave(number)
+        @NumberOfCave=number
+        return "Esta es la cueva #"+@NumberOfCave.to_s
     end
 end

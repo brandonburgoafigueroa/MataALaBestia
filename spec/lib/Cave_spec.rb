@@ -27,6 +27,9 @@ describe Cave do
     it "Asigno monstruo a cueva deberia mostrar mensaje Monstruo agregado" do
         expect(@cave.AddMonster(true)).to eq "Monstruo agregado"
     end
+    it "Asigno el numero de cueva el numero 1 muestra el mensaje Esta es la cueva #1" do
+        expect(@cave.AddNumberOfCave(1)).to eq "Esta es la cueva #1"
+    end
 end
 
 
