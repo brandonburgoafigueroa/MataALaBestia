@@ -11,4 +11,5 @@ class Map
             return "Ya existe una cueva"
         end
     end
+    
 end

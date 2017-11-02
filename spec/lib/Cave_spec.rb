@@ -21,6 +21,9 @@ describe Cave do
         @cave.ShowDoorWest(true)
         expect(@cave.IsAvaiableDoorWest).to eq true
     end
+    it "Asigno 3 flechas a cueva debe mostrar el mensaje 3 Flechas añadidas" do
+        expect(@cave.AddArrow(3)).to eq "3 Flechas añadidas"
+    end
 end
 
 

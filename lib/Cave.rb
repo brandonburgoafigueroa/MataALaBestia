@@ -33,4 +33,8 @@ class Cave
     def IsAvaiableDoorWest
         return @DoorWest
     end
+    def AddArrow(quantity)
+        @Arrows=@Arrows+quantity
+        return quantity.to_s+" Flechas añadidas"
+    end
 end
