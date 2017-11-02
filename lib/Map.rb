@@ -4,7 +4,11 @@ class Map
         @caves=[[]]
     end
     def CreateCave (posx, posy)
-        @caves[posx][posy]=Cueva.new
-        return "Cueva añadida"
+        if (@caves[posx][posy]==nil)
+            @caves[posx][posy]=Cueva.new
+            return "Cueva añadida"
+        else
+            return "Ya existe una cueva"
+        end
     end
 end
