@@ -1,5 +1,6 @@
 require './lib/Cueva.rb'
 
+
 describe Cueva do
     before (:each) do
         @cueva=Cueva.new
@@ -21,3 +22,6 @@ describe Cueva do
         expect(@cueva.IsAvaiableDoorWest).to eq true
     end
 end
+
+
+
