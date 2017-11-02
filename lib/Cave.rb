@@ -46,4 +46,11 @@ class Cave
         @NumberOfCave=number
         return "Esta es la cueva #"+@NumberOfCave.to_s
     end
+    def AddPerson(person)
+        @Person=person
+        return "Personaje agregado"
+    end
+    def GetNumber
+        return "Cueva #"+@NumberOfCave.to_s
+    end
 end

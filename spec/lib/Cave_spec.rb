@@ -30,6 +30,13 @@ describe Cave do
     it "Asigno el numero de cueva el numero 1 muestra el mensaje Esta es la cueva #1" do
         expect(@cave.AddNumberOfCave(1)).to eq "Esta es la cueva #1"
     end
+    it "Asigno personaje a cueva deberia mostrar mensaje Personaje agregado" do
+        expect(@cave.AddPerson(true)).to eq "Personaje agregado"
+    end
+    it "Asigno numero 1 a cueva y muestro numero de cueva deberia devolver Cueva #1" do
+        @cave.AddNumberOfCave(1)
+        expect(@cave.GetNumber).to eq "Cueva #1"
+    end
 end
 
 
