@@ -37,4 +37,8 @@ class Cave
         @Arrows=@Arrows+quantity
         return quantity.to_s+" Flechas añadidas"
     end
+    def AddMonster(monster)
+        @Monster=monster
+        return "Monstruo agregado"
+    end
 end

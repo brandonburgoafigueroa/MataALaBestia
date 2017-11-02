@@ -11,4 +11,8 @@ describe Map do
         @map.CreateCave(0, 1)
         expect(@map.CreateCave(0, 1)).to eq "Ya existe una cueva"
     end
+    it "Si añado una cueva en la posicion 0,1 y le asigno el monstruo y no se ha añadido uno antes muestra el mensaje Monstruo agregado" do
+        @map.CreateCave(0, 1)
+        expect(@map.AssignMonster(0, 1, true)).to eq "Monstruo agregado"
+    end
 end

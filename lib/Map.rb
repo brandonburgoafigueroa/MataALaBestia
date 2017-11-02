@@ -11,5 +11,8 @@ class Map
             return "Ya existe una cueva"
         end
     end
-    
+    def AssignMonster(posx, posy, monster)
+        return @caves[posx][posy].AddMonster(monster)
+    end
+
 end
