@@ -5,6 +5,9 @@ class Cueva
         @DoorSouth=false
         @DoorEast=false
         @DoorWest=false
+        @Person=nil
+        @Arrows=0
+        @Monster=nil
     end
     def ShowDoorNorth(option)
         @DoorNorth=option
