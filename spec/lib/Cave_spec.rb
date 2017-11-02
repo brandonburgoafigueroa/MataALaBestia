@@ -24,6 +24,9 @@ describe Cave do
     it "Asigno 3 flechas a cueva debe mostrar el mensaje 3 Flechas añadidas" do
         expect(@cave.AddArrow(3)).to eq "3 Flechas añadidas"
     end
+    it "Asigno monstruo a cueva deberia mostrar mensaje Monstruo agregado" do
+        expect(@cave.AddMonster(true)).to eq "Monstruo agregado"
+    end
 end
 
 
