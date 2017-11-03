@@ -18,3 +18,6 @@ end
   Then("deberia mostrar el mensaje {string}") do |string|
     last_response.body.should =~ /#{string}/m
   end
+  Then("Si la cueva solo tiene acceso a la cueva sud deberia mostrar boton {string}") do |string|
+    last_response.body.should =~ /#{string}/m
+  end

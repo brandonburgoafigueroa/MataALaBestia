@@ -8,6 +8,7 @@ class Game
     end
     def MapDefault()
         @default.CreateCave(0,0)
+        @default.AvaiableDoorsOnCave(false, true, false, false, 0, 0)
         @default.CreateCave(0,1)
         @default.CreateCave(0,2)
         @default.CreateCave(0,3)

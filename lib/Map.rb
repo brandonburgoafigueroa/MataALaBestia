@@ -44,7 +44,12 @@ class Map
             return true
         end
     end
-
+    def AvaiableDoorsOnCave(north, south, east, west, posx, posy)
+        @caves[posx][posx].ShowDoorNorth(north)
+        @caves[posx][posx].ShowDoorSouth(south)
+        @caves[posx][posx].ShowDoorEast(east)
+        @caves[posx][posx].ShowDoorWest(west)
+    end
     def AssignMonster(posx, posy)
         if (HasCave(posx, posy))
             UpdatePosMonster(posx, posy)

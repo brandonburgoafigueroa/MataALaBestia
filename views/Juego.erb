@@ -43,11 +43,28 @@
 
 <div style="overflow:auto">
   <div class="main">
-    <h2>Estas en la cueva Nº 1</h2>
-    <svg height="600" width="600">
-    <circle cx="270" cy="270" r="250" stroke="black" stroke-width="3" fill="white" />
-    Sorry, your browser does not support inline SVG.  
-     </svg> 
+    <h2>Estas en la cueva Nº <%=  $game.ShowActualCaveNumber()%></h2>
+    <div style="overflow-x:auto;">
+    <table>
+      <tr>
+        <td>-----</td>
+        <td>Up</td>
+        <td>-----</td>
+      </tr>
+      <tr>
+        <td>Left</td>
+        <td>-----</td>
+        <td>Rigth</td>
+      </tr>
+      <tr>
+        <td>-----</td>
+        <td><input type='submit' value='Ir al sud'</td>
+        <td>-----</td>
+      </tr>
+  
+    </table>
+  </div>
+    
   </div>
 
   <div class="right">
