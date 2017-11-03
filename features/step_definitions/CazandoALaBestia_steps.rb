@@ -15,3 +15,6 @@ end
   Then("Deberia mostrarme la pagina del juego") do
     visit '/Juego'
   end
+  Then("deberia mostrar el mensaje {string}") do |string|
+    last_response.body.should =~ /#{string}/m
+  end
