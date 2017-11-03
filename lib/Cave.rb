@@ -41,6 +41,6 @@ class Cave
         return "Esta es la cueva #"+@NumberOfCave.to_s
     end
     def GetNumber
-        return "Cueva #"+@NumberOfCave.to_s
+        return @NumberOfCave.to_s
     end
 end

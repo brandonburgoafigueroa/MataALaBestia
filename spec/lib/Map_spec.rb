@@ -18,7 +18,7 @@ describe Map do
     it "Si añado una cueva en la posicion 0,1 y asigno a ella el personaje deberia mostrar Personaje agregado a la Cueva #1" do
         @map.reset
         @map.CreateCave(0, 1)
-        expect(@map.AssignAvatar(0, 1)).to eq "Personaje agregado a la Cueva #1"
+        expect(@map.AssignAvatar(0, 1)).to eq "Personaje agregado"
     end
    
 end

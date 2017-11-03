@@ -29,7 +29,7 @@ describe Cave do
     end
     it "Asigno numero 1 a cueva y muestro numero de cueva deberia devolver Cueva #1" do
         @cave.AddNumberOfCave(1)
-        expect(@cave.GetNumber).to eq "Cueva #1"
+        expect(@cave.GetNumber).to eq "1"
     end
 end
 

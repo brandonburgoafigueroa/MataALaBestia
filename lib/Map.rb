@@ -61,7 +61,7 @@ class Map
     def AssignAvatar(posx, posy)
         if (HasCave(posx, posy))
             UpdatePosPerson(posx, posy)
-            return "Personaje agregado a la "+ NumberOfCaveInPos(posx, posy)
+            return "Personaje agregado"
         else
             return "No hay una cueva en esa posicion"
         end
@@ -82,7 +82,9 @@ class Map
             return ""
         end
     end
-
+    def GetCaveInfo(posx, posy)
+        return @caves[posx][posy]
+    end
     def NearMonster()
         if (@PosOfMonster[0]-@PosOfPerson[0]==1 || @PosOfMonster[1]-@PosOfPerson[1]==1 || @PosOfMonster[0]-@PosOfPerson[0]==-1 || @PosOfMonster[1]-@PosOfPerson[1]==-1)
             return true

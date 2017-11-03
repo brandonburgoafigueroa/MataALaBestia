@@ -38,5 +38,8 @@ class Game
             return false
         end
     end
-
+    def ShowActualCaveNumber()
+        cave=@default.GetCaveInfo(@PosOfPerson[0], @PosOfPerson[1])
+        return cave.GetNumber
+    end
 end
