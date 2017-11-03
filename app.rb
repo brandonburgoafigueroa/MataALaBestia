@@ -28,3 +28,13 @@ post '/AlSud' do
     $game.MovePerson("Sud")
     erb :Juego
 end
+
+get '/AlNorte' do
+    
+    erb :Juego
+end
+
+post '/AlNorte' do
+    $game.MovePerson("Norte")
+    erb :Juego
+end

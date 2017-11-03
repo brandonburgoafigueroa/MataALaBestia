@@ -22,7 +22,9 @@ class Game
         if (orientation=="Sud")
             @PosOfPerson[1]=@PosOfPerson[1]+1
         end
-        
+        if (orientation=="Norte")
+            @PosOfPerson[1]=@PosOfPerson[1]-1
+        end        
     end
     def FeelSmell
         if (NearMonster())
