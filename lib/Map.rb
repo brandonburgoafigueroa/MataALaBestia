@@ -40,7 +40,18 @@ class Map
         end
     end
     def FeelSmell
-        return "Siento un olor"
+        if (NearMonster())
+            return "Siento un olor"
+        else
+            return ""
+        end
+    end
+    def NearMonster()
+        if (@PosOfMonster[0]-@PosOfPerson[0]==1 || @PosOfMonster[1]-@PosOfPerson[1]==1 || @PosOfMonster[0]-@PosOfPerson[0]==-1 || @PosOfMonster[1]-@PosOfPerson[1]==-1)
+            return true
+        else
+            return false
+        end
     end
 
 end
