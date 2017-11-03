@@ -16,3 +16,8 @@ Scenario:
 Scenario:
             Given   Visito la pagina del juego 
             Then    Si la cueva solo tiene acceso a la cueva sud deberia mostrar boton "Ir al sud"
+Scenario:
+            Given   Visito la pagina del juego
+            When    presiono el boton "Ir al sud" 
+            Then    deberia mostrar el mensaje "Estas en la cueva Nº 2"
+            
