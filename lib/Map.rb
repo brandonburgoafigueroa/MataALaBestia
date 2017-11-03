@@ -13,7 +13,7 @@ class Map
         @PosOfMonster=[]
     end
     def CreateCave (posx, posy)
-        if (@caves[posx][posy]==nil)
+        if (HasCave(posx, posy))
             @caves[posx][posy]=Cave.new
             @LastCave=@LastCave+1
             @caves[posx][posy].AddNumberOfCave(@LastCave)
@@ -21,6 +21,13 @@ class Map
             return "Cueva añadida"
         else
             return "Ya existe una cueva"
+        end
+    end
+    def HasCave(posx, posy)
+        if (@caves[posx][posy]!=nil)
+            return false
+        else
+            return true
         end
     end
     def AssignMonster(posx, posy)
