@@ -13,12 +13,11 @@ describe Map do
     end
     it "Si añado una cueva en la posicion 0,1 y le asigno el monstruo y no se ha añadido uno antes muestra el mensaje Monstruo agregado" do
         @map.CreateCave(0, 1)
-        expect(@map.AssignMonster(0, 1)).to eq "Monstruo agregado"
+        expect(@map.SetStartMonsterPos(0, 1)).to eq "Monstruo agregado"
     end
-    it "Si añado una cueva en la posicion 0,1 y asigno a ella el personaje deberia mostrar Personaje agregado a la Cueva #1" do
-        @map.reset
+    it "Si añado una cueva en la posicion 0,1 y asigno a ella el personaje deberia mostrar Personaje agregado" do
         @map.CreateCave(0, 1)
-        expect(@map.AssignAvatar(0, 1)).to eq "Personaje agregado"
+        expect(@map.SetStartPersonPos(0, 1)).to eq "Personaje agregado"
     end
    
 end

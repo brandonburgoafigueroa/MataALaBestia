@@ -43,38 +43,56 @@
 
 <div style="overflow:auto">
   <div class="main">
-    <h2>Estas en la cueva Nº <%=  $game.ShowActualCaveNumber()%></h2>
+    <h2>Estas en la cueva Nº <%= $game.ShowActualNumberOfCave(); %></h2>
     <div style="overflow-x:auto;">
     <table>
       <tr>
-        <td>-----</td>
+        <td></td>
         <td>
-        <% if (true) %>
+        <% if $game.GetDoors()[0] %>
                 <form method='post' action='/AlNorte'>
                 <input type='submit' value='Ir al norte'</td>
                 </form>
         <%else%>
-            <td>-----</td>
+            <input type='submit' value=''</td>
         <% end %>
         </td>
-        <td>-----</td>
+        <td></td>
       </tr>
       <tr>
-        <td>Left</td>
-        <td>-----</td>
-        <td>Rigth</td>
-      </tr>
-      <tr>
-        <td>-----</td>
         <td>
-            <% if (true)%>
+        <% if $game.GetDoors()[3] %>
+         <form method='post' action='/AlOeste'>
+                <input type='submit' value='Ir al oeste'</td>
+                </form>
+                <%else%>
+            <input type='submit' value=''</td>
+        <% end %>
+        </td>
+        <td></td>
+        <td>
+        <% if $game.GetDoors()[2] %>
+          <form method='post' action='/AlEste'>
+                <input type='submit' value='Ir al este'</td>
+                </form>
+                <%else%>
+            <input type='submit' value=''</td>
+        <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+            <% if $game.GetDoors()[1] %>
                     <form method='post' action='/AlSud'>
                     <input type='submit' value='Ir al sud'</td>
                     </form>
 
-            <% end %>
+            <%else%>
+            <input type='submit' value=''</td>
+        <% end %>
               
-        <td>-----</td>
+        <td></td>
       </tr>
   
     </table>
@@ -83,10 +101,16 @@
   </div>
 
   <div class="right">
-    <h2>About</h2>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+    <h2>Mensajes:</h2>
+    <p>
+      <% if $game.IsNearTheMonster();%>
+        Siento un olor
+      <%end%>
+      <% if $game.IsTheSamePosMonsterAndPerson();%>
+        El monstruo te atrapo
+      <%end%>
+    </p>
   </div>
 </div>
-
-<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">© copyright w3schools.com</div>
+<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;"></div>
 </form>

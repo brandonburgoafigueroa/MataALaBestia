@@ -2,7 +2,6 @@ require 'sinatra'
 require './lib/Game.rb'
 
 $game=Game.new
-$caveReference=$game.GetDoors
 
 get '/' do
     erb :PantallaPrincipal
@@ -13,7 +12,6 @@ post '/' do
 end
 
 get '/Juego' do
-    $caveReference=$game.GetDoors
     erb :Juego
 end
 
@@ -22,23 +20,38 @@ post '/Juego' do
 end
 
 get '/AlSud' do
-    $caveReference=$game.GetDoors
     erb :Juego
 end
 
 post '/AlSud' do
-    $game.MovePerson("Sud")
-    $caveReference=$game.GetDoors
+    $game.MovePerson("sud")
     erb :Juego
 end
 
 get '/AlNorte' do
-    $caveReference=$game.GetDoors
     erb :Juego
 end
 
 post '/AlNorte' do
-    $game.MovePerson("Norte")
-    $caveReference=$game.GetDoors
+    $game.MovePerson("norte")
+
+    erb :Juego
+end
+
+get '/AlEste' do
+    erb :Juego
+end
+
+post '/AlEste' do
+    $game.MovePerson("este")
+    erb :Juego
+end
+
+get '/AlOeste' do
+    erb :Juego
+end
+
+post '/AlOeste' do
+    $game.MovePerson("oeste")
     erb :Juego
 end

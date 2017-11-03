@@ -3,104 +3,74 @@ class Map
     def initialize
         @caves=[[], [], [], []]
         @LastCave=0
-        @PosOfPerson=[]
-        @PosOfMonster=[]
+        @PosPersonStart=[]
+        @PosMonsterStart=[]
     end
-
-    def reset
-        @caves=[[]]
-        @LastCave=0
-        @PosOfPerson=[]
-        @PosOfMonster=[]
+    def Default()
+        CreateCave(0,0)
+        CreateCave(0,1)
+        CreateCave(0,2)
+        CreateCave(0,3)
+        CreateCave(1,3)
+        CreateCave(2,3)
+        CreateCave(3,3)
+        AssignDoors(0,0, false, true, false, false)
+        AssignDoors(0,1, true, true, false, false)
+        AssignDoors(0,2, true, true, false, false)
+        AssignDoors(0,3, true, false, true, false) #up, down, right, left
+        AssignDoors(1,3, false, false, true, true)
+        AssignDoors(2,3, false, false, true, true)
+        AssignDoors(3,3, false, false, false, true)
+        SetStartPersonPos(0,0)
+        SetStartMonsterPos(3,3)
     end
-
-    def CreateCave (posx, posy)
+    def GetStartPosPerson()
+        return @PosPersonStart
+    end
+    def SetStartPersonPos(posx, posy)
         if (HasCave(posx, posy))
-            return "Ya existe una cueva"
+            @PosPersonStart=[posx, posy]
+            return "Personaje agregado"
         else
-            AddCave(posx, posy)
-            return "Cueva añadida"    
+            return false
         end
     end
-
-    def AddCave(posx, posy)
-        @caves[posx][posy]=Cave.new
-        IncrementLastCave()
-        AddNumberOfCave(posx, posy)
+    def GetStartPosMonster()
+        return @PosMonsterStart
     end
-
-    def IncrementLastCave()
-        @LastCave=@LastCave+1
+    def SetStartMonsterPos(posx, posy)
+        if (HasCave(posx, posy))
+            @PosMonsterStart=[posx, posy]
+            return "Monstruo agregado"
+        else
+            return false
+        end
     end
-
-    def AddNumberOfCave(posx, posy)
-        @caves[posx][posy].AddNumberOfCave(@LastCave)
+    def CreateCave(posx, posy)
+        if (!HasCave(posx, posy))
+            @caves[posx][posy]=Cave.new
+            @LastCave=@LastCave+1
+            @caves[posx][posy].AddNumberOfCave(@LastCave)
+            return "Cueva añadida"
+        else
+            return "Ya existe una cueva"
+        end
+        
     end
-
+    def AssignDoors(posx, posy, north, south, east, west)
+        @caves[posx][posy].DoorsAvaiable(north, south, east, west)
+    end
+    def GetNumberCaveOfPos(posx, posy)
+        return @caves[posx][posy].GetNumber
+    end
+    def GetCave(posx, posy)
+        return @caves[posx][posy]
+    end
     def HasCave(posx, posy)
         if (@caves[posx][posy]==nil)
             return false
         else
             return true
         end
-    end
-    def AvaiableDoorsOnCave(north, south, east, west, posx, posy)
-        @caves[posx][posx].ShowDoorNorth(north)
-        @caves[posx][posx].ShowDoorSouth(south)
-        @caves[posx][posx].ShowDoorEast(east)
-        @caves[posx][posx].ShowDoorWest(west)
-    end
-    def AssignMonster(posx, posy)
-        if (HasCave(posx, posy))
-            UpdatePosMonster(posx, posy)
-            return "Monstruo agregado"
-        else
-            return "No hay una cueva en esa posicion"
-        end
-    end
-
-    def UpdatePosMonster(posx, posy)
-        @PosOfMonster=[posx, posy] 
-    end
-
-    def AssignAvatar(posx, posy)
-        if (HasCave(posx, posy))
-            UpdatePosPerson(posx, posy)
-            return "Personaje agregado"
-        else
-            return "No hay una cueva en esa posicion"
-        end
-    end
-
-    def NumberOfCaveInPos(posx, posy)
-        return @caves[posx][posy].GetNumber()
-    end
-
-    def UpdatePosPerson(posx, posy)
-        @PosOfPerson=[posx, posy]
-    end
-
-    def FeelSmell
-        if (NearMonster())
-            return "Siento un olor"
-        else
-            return ""
-        end
-    end
-    def GetCaveInfo(posx, posy)
-        return @caves[posx][posy]
-    end
-    def NearMonster()
-        if (@PosOfMonster[0]-@PosOfPerson[0]==1 || @PosOfMonster[1]-@PosOfPerson[1]==1 || @PosOfMonster[0]-@PosOfPerson[0]==-1 || @PosOfMonster[1]-@PosOfPerson[1]==-1)
-            return true
-        else
-            return false
-        end
-    end
-    def GetPosMonster
-        return @PosOfMonster
-    end
-    def GetPosPerson
-        return @PosOfPerson
     end
 end
