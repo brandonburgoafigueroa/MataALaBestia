@@ -17,8 +17,11 @@ class Game
         @default.AssignAvatar(0,0)
         @default.AssignMonster(0,2)
     end
-    def MovePerson(posx, posy)
-        @PosOfPerson=[posx, posy]
+    def MovePerson(orientation)
+        if (orientation=="Sud")
+            @PosOfPerson[1]=@PosOfPerson[1]+1
+        end
+        
     end
     def FeelSmell
         if (NearMonster())
