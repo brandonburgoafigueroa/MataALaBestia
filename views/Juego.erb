@@ -49,9 +49,13 @@
       <tr>
         <td>-----</td>
         <td>
-        <form method='post' action='/AlNorte'>
-        <input type='submit' value='Ir al norte'</td>
-        </form>
+        <% if (true) %>
+                <form method='post' action='/AlNorte'>
+                <input type='submit' value='Ir al norte'</td>
+                </form>
+        <%else%>
+            <td>-----</td>
+        <% end %>
         </td>
         <td>-----</td>
       </tr>
@@ -63,9 +67,13 @@
       <tr>
         <td>-----</td>
         <td>
-        <form method='post' action='/AlSud'>
-        <input type='submit' value='Ir al sud'</td>
-        </form>
+            <% if (true)%>
+                    <form method='post' action='/AlSud'>
+                    <input type='submit' value='Ir al sud'</td>
+                    </form>
+
+            <% end %>
+              
         <td>-----</td>
       </tr>
   

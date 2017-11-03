@@ -10,8 +10,11 @@ class Game
         @default.CreateCave(0,0)
         @default.AvaiableDoorsOnCave(false, true, false, false, 0, 0)
         @default.CreateCave(0,1)
+        @default.AvaiableDoorsOnCave(true, true, false, false, 0, 1)
         @default.CreateCave(0,2)
+        @default.AvaiableDoorsOnCave(true, true, false, false, 0, 2)
         @default.CreateCave(0,3)
+        @default.AvaiableDoorsOnCave(true, false, false, true, 0, 3)
         @default.CreateCave(1,3)
         @default.CreateCave(2,3)
         @default.CreateCave(3,3)
@@ -45,4 +48,8 @@ class Game
         cave=@default.GetCaveInfo(@PosOfPerson[0], @PosOfPerson[1])
         return cave.GetNumber
     end
+    def GetDoors #[0]norte [1]sud [2]este [3]oeste
+        cave=@default.GetCaveInfo(@PosOfPerson[0], @PosOfPerson[1])
+        return [cave.IsAvaiableDoorNorth, cave.IsAvaiableDoorSouth, cave.IsAvaiableDoorEast, cave.IsAvaiableDoorWest]
+    end 
 end
