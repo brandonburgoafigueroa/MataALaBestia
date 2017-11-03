@@ -20,11 +20,5 @@ describe Map do
         @map.CreateCave(0, 1)
         expect(@map.AssignAvatar(0, 1)).to eq "Personaje agregado a la Cueva #1"
     end
-    it "Si añado dos cuevas en las posiciones 0,1(1) y 0,2(2) - añado un personaje en la cueva 1, un monstruo en la 2 y verifico si hay olores deberia mostrar mensaje Siento un olor" do
-         @map.CreateCave(0,1)
-         @map.CreateCave(0,2)
-         @map.AssignMonster(0,2)
-         @map.AssignAvatar(0,1)
-         expect(@map.FeelSmell).to eq "Siento un olor"
-    end
+   
 end

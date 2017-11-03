@@ -1,7 +1,7 @@
 require './lib/Cave.rb'
 class Map
     def initialize
-        @caves=[[]]
+        @caves=[[], [], [], []]
         @LastCave=0
         @PosOfPerson=[]
         @PosOfMonster=[]
@@ -90,5 +90,10 @@ class Map
             return false
         end
     end
-
+    def GetPosMonster
+        return @PosOfMonster
+    end
+    def GetPosPerson
+        return @PosOfPerson
+    end
 end
