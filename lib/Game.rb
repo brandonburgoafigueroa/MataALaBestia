@@ -10,7 +10,7 @@ class Game
     def QuantityArrows()
         return @Arrows
     end
-    def AddArrows(posx, posy)
+    def AddArrows()
             @Arrows=@Arrows+ActualCaveGetArrows()            
     end
     def ActualCaveGetArrows()
@@ -19,19 +19,19 @@ class Game
     def MovePerson(sentido)
         if (sentido=="norte" && AcutalCaveHasNorth())
             @PosPerson[1]=@PosPerson[1]-1
-            AddArrows(@PosPerson[0], @PosPerson[1])
+            AddArrows()
         end
         if (sentido=="sud" && AcutalCaveHasSouth())
             @PosPerson[1]=@PosPerson[1]+1
-            AddArrows(@PosPerson[0], @PosPerson[1])
+            AddArrows()
         end
         if (sentido=="este" && AcutalCaveHasEast())
             @PosPerson[0]=@PosPerson[0]+1
-            AddArrows(@PosPerson[0], @PosPerson[1])
+            AddArrows()
         end
         if (sentido=="oeste" && AcutalCaveHasWest())
             @PosPerson[0]=@PosPerson[0]-1
-            AddArrows(@PosPerson[0], @PosPerson[1])
+            AddArrows()
         end
     end
     def ShowActualNumberOfCave
