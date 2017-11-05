@@ -34,7 +34,7 @@ class Game
             AddArrows(@PosPerson[0], @PosPerson[1])
         end
     end
-    def ShowActualNumberOfCaves
+    def ShowActualNumberOfCave
         return @map.GetNumberCaveOfPos(@PosPerson[0], @PosPerson[1])
     end
     def AcutalCaveHasNorth()
