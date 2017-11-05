@@ -5,8 +5,11 @@ class Game
         @map.Default()
         @PosPerson=@map.GetStartPosPerson()
         @PosMonster=@map.GetStartPosMonster()
+        @Arrows=0
     end
-
+    def QuantityArrows()
+        return @Arrows
+    end
     def MovePerson(sentido)
         if (sentido=="norte" && AcutalCaveHasNorth())
             @PosPerson[1]=@PosPerson[1]-1
