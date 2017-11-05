@@ -23,6 +23,7 @@ class Map
         AssignDoors(3,3, false, false, false, true)
         SetStartPersonPos(0,0)
         SetStartMonsterPos(3,3)
+        AddArrowsToCave(0, 1, 3)
     end
     def AddArrowsToCave(posx, posy, quantity)
         if (HasCave(posx, posy))
@@ -30,6 +31,9 @@ class Map
         else
             return "No existe cueva en esta posicion"
         end
+    end
+    def PickUpArrows(posx, posy)
+        return @caves[posx][posy].PickUpArrows()
     end
     def GetStartPosPerson()
         return @PosPersonStart

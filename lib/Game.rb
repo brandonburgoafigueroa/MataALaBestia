@@ -10,21 +10,31 @@ class Game
     def QuantityArrows()
         return @Arrows
     end
+    def AddArrows(posx, posy)
+            @Arrows=@Arrows+ActualCaveGetArrows()            
+    end
+    def ActualCaveGetArrows()
+        return @map.PickUpArrows(@PosPerson[0], @PosPerson[1])
+    end
     def MovePerson(sentido)
         if (sentido=="norte" && AcutalCaveHasNorth())
             @PosPerson[1]=@PosPerson[1]-1
+            AddArrows(@PosPerson[0], @PosPerson[1])
         end
         if (sentido=="sud" && AcutalCaveHasSouth())
             @PosPerson[1]=@PosPerson[1]+1
+            AddArrows(@PosPerson[0], @PosPerson[1])
         end
         if (sentido=="este" && AcutalCaveHasEast())
             @PosPerson[0]=@PosPerson[0]+1
+            AddArrows(@PosPerson[0], @PosPerson[1])
         end
         if (sentido=="oeste" && AcutalCaveHasWest())
             @PosPerson[0]=@PosPerson[0]-1
+            AddArrows(@PosPerson[0], @PosPerson[1])
         end
     end
-    def ShowActualNumberOfCave
+    def ShowActualNumberOfCaves
         return @map.GetNumberCaveOfPos(@PosPerson[0], @PosPerson[1])
     end
     def AcutalCaveHasNorth()

@@ -24,3 +24,6 @@ end
   When("muestre el mensaje {string}") do |string|
     last_response.body.should =~ /#{string}/m
   end
+  When("Presiono el boton {string} y en esa cueva hay {int} flechas") do |string, int|
+    click_button(string)
+  end

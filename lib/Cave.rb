@@ -48,4 +48,16 @@ class Cave
      def GetNumber
          return @NumberOfCave
      end
+     def PickUpArrows()
+        quantity=@Arrows
+        @Arrows=0
+        return quantity
+     end
+     def HasArrows()
+        if @Arrow==0
+            return false
+        else
+            return true
+        end
+     end
  end
