@@ -53,4 +53,5 @@ class Cave
         @Arrows=0
         return quantity
      end
+     
  end
