@@ -41,3 +41,8 @@ Scenario:
             And presiono el boton "Ir al este"
             And presiono el boton "Ir al este"
             Then deberia mostrar el mensaje "Siento un olor"
+
+Scenario:
+            Given   Visito la pagina del juego
+            And presiono el boton "Ir al este"
+            Then deberia mostrar el mensaje "El monstruo te atrapo"
