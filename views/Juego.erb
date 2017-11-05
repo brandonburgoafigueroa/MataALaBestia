@@ -48,7 +48,7 @@
       <tr>
         <td></td>
         <td>
-        <% if $game.GetDoors()[0] %>
+        <% if $game.GetDoors()[0] && $game.IsTheSamePosMonsterAndPerson()==false; %>
          <form method='post' action='/AlNorte'>
            <input type='submit' value='Ir al norte'</td>
          </form>
@@ -62,7 +62,7 @@
       </tr>
       <tr>
         <td>
-        <% if $game.GetDoors()[3] %>
+        <% if $game.GetDoors()[3] && $game.IsTheSamePosMonsterAndPerson()==false; %>
          <form method='post' action='/AlOeste'>
            <input type='submit' value='Ir al oeste'</td>
           </form>
@@ -74,7 +74,7 @@
         </td>
         <td></td>
         <td>
-        <% if $game.GetDoors()[2] %>
+        <% if $game.GetDoors()[2] && $game.IsTheSamePosMonsterAndPerson()==false; %>
           <form method='post' action='/AlEste'>
             <input type='submit' value='Ir al este'</td>
           </form>
@@ -88,7 +88,7 @@
       <tr>
         <td></td>
         <td>
-          <% if $game.GetDoors()[1] %>
+          <% if $game.GetDoors()[1] && $game.IsTheSamePosMonsterAndPerson()==false; %>
             <form method='post' action='/AlSud'>
               <input type='submit' value='Ir al sud'</td>
             </form>
