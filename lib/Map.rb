@@ -24,6 +24,13 @@ class Map
         SetStartPersonPos(0,0)
         SetStartMonsterPos(3,3)
     end
+    def AddArrowsToCave(posx, posy, quantity)
+        if (HasCave(posx, posy))
+            return @caves[posx][posy].AddArrow(quantity)
+        else
+            return "No existe cueva en esta posicion"
+        end
+    end
     def GetStartPosPerson()
         return @PosPersonStart
     end
