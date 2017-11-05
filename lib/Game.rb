@@ -9,11 +9,12 @@ class Game
         @PosMonster=@map.GetStartPosMonster()
         @Arrows=0
     end
+
     def QuantityArrows()
         return @Arrows
     end
     def AddArrows()
-            @Arrows=@Arrows+ActualCaveGetArrows()            
+        @Arrows=@Arrows+ActualCaveGetArrows()  
     end
     def ActualCaveGetArrows()
         return @map.PickUpArrows(@PosPerson[0], @PosPerson[1])
