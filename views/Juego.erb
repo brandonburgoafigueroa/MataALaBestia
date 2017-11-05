@@ -50,11 +50,13 @@
         <td></td>
         <td>
         <% if $game.GetDoors()[0] %>
-                <form method='post' action='/AlNorte'>
-                <input type='submit' value='Ir al norte'</td>
-                </form>
+         <form method='post' action='/AlNorte'>
+           <input type='submit' value='Ir al norte'</td>
+         </form>
         <%else%>
-            <input type='submit' value=''</td>
+          <form method='post' action='/AlNorte'>
+            <input type='submit' disabled value='Ir al norte'</td>
+          </form>
         <% end %>
         </td>
         <td></td>
@@ -63,34 +65,39 @@
         <td>
         <% if $game.GetDoors()[3] %>
          <form method='post' action='/AlOeste'>
-                <input type='submit' value='Ir al oeste'</td>
-                </form>
-                <%else%>
-            <input type='submit' value=''</td>
+           <input type='submit' value='Ir al oeste'</td>
+          </form>
+        <%else%>
+          <form method='post' action='/AlNorte'>
+            <input type='submit' disabled value='Ir al oeste'</td>
+          </form>
         <% end %>
         </td>
         <td></td>
         <td>
         <% if $game.GetDoors()[2] %>
           <form method='post' action='/AlEste'>
-                <input type='submit' value='Ir al este'</td>
-                </form>
-                <%else%>
-            <input type='submit' value=''</td>
-        <% end %>
+            <input type='submit' value='Ir al este'</td>
+          </form>
+          <%else%>
+            <form method='post' action='/AlEste'>
+              <input type='submit' disabled value='Ir al este'</td>
+            </form>
+          <% end %>
         </td>
       </tr>
       <tr>
         <td></td>
         <td>
-            <% if $game.GetDoors()[1] %>
-                    <form method='post' action='/AlSud'>
-                    <input type='submit' value='Ir al sud'</td>
-                    </form>
-
-            <%else%>
-            <input type='submit' value=''</td>
-        <% end %>
+          <% if $game.GetDoors()[1] %>
+            <form method='post' action='/AlSud'>
+              <input type='submit' value='Ir al sud'</td>
+            </form>
+          <%else%>
+            <form method='post' action='/AlSud'>
+              <input type='submit' disabled value='Ir al sud'</td>
+            </form>
+          <% end %>
               
         <td></td>
       </tr>
