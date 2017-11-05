@@ -1,3 +1,116 @@
 <form method='post' action='/'>
     <input type='submit' value='Salir del juego'>
+    </form>
+
+
+<style>
+* {
+  box-sizing: border-box;
+}
+.menu {
+  float:left;
+  width:20%;
+  text-align:center;
+}
+.menuitem {
+  background-color:#e5e5e5;
+  padding:8px;
+  margin-top:7px;
+}
+.main {
+  float:left;
+  width:60%;
+  padding:0 20px;
+}
+.right {
+  background-color:#e5e5e5;
+  float:left;
+  width:20%;
+  padding:15px;
+  margin-top:7px;
+  text-align:center;
+}
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width:100%;
+  }
+}
+</style>
+</head>
+<body style="font-family:Verdana;color:#aaaaaa;">
+
+<div style="overflow:auto">
+  <div class="main">
+    <h2>Estas en la cueva Nº <%= $game.ShowActualNumberOfCave(); %></h2>
+    <div style="overflow-x:auto;">
+    <table>
+      <tr>
+        <td></td>
+        <td>
+        <% if $game.GetDoors()[0] %>
+                <form method='post' action='/AlNorte'>
+                <input type='submit' value='Ir al norte'</td>
+                </form>
+        <%else%>
+            <input type='submit' value=''</td>
+        <% end %>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+        <% if $game.GetDoors()[3] %>
+         <form method='post' action='/AlOeste'>
+                <input type='submit' value='Ir al oeste'</td>
+                </form>
+                <%else%>
+            <input type='submit' value=''</td>
+        <% end %>
+        </td>
+        <td></td>
+        <td>
+        <% if $game.GetDoors()[2] %>
+          <form method='post' action='/AlEste'>
+                <input type='submit' value='Ir al este'</td>
+                </form>
+                <%else%>
+            <input type='submit' value=''</td>
+        <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+            <% if $game.GetDoors()[1] %>
+                    <form method='post' action='/AlSud'>
+                    <input type='submit' value='Ir al sud'</td>
+                    </form>
+
+            <%else%>
+            <input type='submit' value=''</td>
+        <% end %>
+              
+        <td></td>
+      </tr>
+  
+    </table>
+  </div>
+    
+  </div>
+
+  <div class="right">
+    <h2>Mensajes:</h2>
+    <p>
+      <% if $game.IsNearTheMonster();%>
+        Siento un olor
+      <%end%>
+      <% if $game.IsTheSamePosMonsterAndPerson();%>
+        El monstruo te atrapo
+      <%end%>
+    </p>
+  </div>
+</div>
+<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;"></div>
 </form>

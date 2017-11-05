@@ -15,3 +15,12 @@ end
   Then("Deberia mostrarme la pagina del juego") do
     visit '/Juego'
   end
+  Then("deberia mostrar el mensaje {string}") do |string|
+    last_response.body.should =~ /#{string}/m
+  end
+  Then("Si la cueva solo tiene acceso a la cueva sud deberia mostrar boton {string}") do |string|
+    last_response.body.should =~ /#{string}/m
+  end
+  When("muestre el mensaje {string}") do |string|
+    last_response.body.should =~ /#{string}/m
+  end
