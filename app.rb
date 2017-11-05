@@ -2,7 +2,7 @@ require 'sinatra'
 require './lib/Game.rb'
 
 $game=Game.new
-
+$game.StartDefault()
 get '/' do
     erb :PantallaPrincipal
 end

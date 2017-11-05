@@ -2,6 +2,8 @@ require './lib/Map.rb'
 class Game
     def initialize
         @map=Map.new
+    end
+    def StartDefault()
         @map.Default()
         @PosPerson=@map.GetStartPosPerson()
         @PosMonster=@map.GetStartPosMonster()
