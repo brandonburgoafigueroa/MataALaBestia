@@ -42,35 +42,22 @@ class Game
     end
     def AcutalCaveHasNorth()
         cave=@map.GetCave(@PosPerson[0], @PosPerson[1])
-        if (cave.IsAvaiableDoorNorth)
-            return true
-        else
-            return false
-        end
+        return cave.IsAvaiableDoorNorth
     end
     def AcutalCaveHasSouth()
         cave=@map.GetCave(@PosPerson[0], @PosPerson[1])
-        if (cave.IsAvaiableDoorSouth)
-            return true
-        else
-            return false
-        end
+        return cave.IsAvaiableDoorSouth
+            
     end
     def AcutalCaveHasEast()
         cave=@map.GetCave(@PosPerson[0], @PosPerson[1])
-        if (cave.IsAvaiableDoorEast)
-            return true
-        else
-            return false
-        end
+       return cave.IsAvaiableDoorEast
+            
     end
     def AcutalCaveHasWest()
         cave=@map.GetCave(@PosPerson[0], @PosPerson[1])
-        if (cave.IsAvaiableDoorWest)
-            return true
-        else
-            return false
-        end
+        return cave.IsAvaiableDoorWest
+        
     end
     def GetDoors()
         north=AcutalCaveHasNorth()
@@ -80,18 +67,11 @@ class Game
         return [north, south, east, west]
     end
     def IsTheSamePosMonsterAndPerson()
-        if (@PosMonster==@PosPerson)
-            return true
-        else
-            return false
-        end
+        return @PosMonster==@PosPerson
     end
     def IsNearTheMonster()
-        if (IsInTheSameColumnAndNear() || IsInTheSameRowAndNear())
-            return true
-        else
-            return false
-        end
+        return IsInTheSameColumnAndNear() || IsInTheSameRowAndNear()
+            
     end
     def IsInTheSameColumnAndNear()
         if (@PosMonster[0]-1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1] || @PosMonster[0]+1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1])
@@ -101,11 +81,8 @@ class Game
         end
     end
     def IsInTheSameRowAndNear()
-        if (@PosMonster[1]-1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0] || @PosMonster[1]+1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0])
-            true
-        else
-            false
-        end
+        return (@PosMonster[1]-1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0] || @PosMonster[1]+1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0])
+            
     end
 
 end  
