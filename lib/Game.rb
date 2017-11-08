@@ -2,23 +2,39 @@ require './lib/Map.rb'
 class Game
     def initialize
         @map=Map.new
+    end
+    def StartDefault()
         @map.Default()
         @PosPerson=@map.GetStartPosPerson()
         @PosMonster=@map.GetStartPosMonster()
+        @Arrows=0
     end
 
+    def QuantityArrows()
+        return @Arrows
+    end
+    def AddArrows()
+        @Arrows=@Arrows+ActualCaveGetArrows()  
+    end
+    def ActualCaveGetArrows()
+        return @map.PickUpArrows(@PosPerson[0], @PosPerson[1])
+    end
     def MovePerson(sentido)
         if (sentido=="norte" && AcutalCaveHasNorth())
             @PosPerson[1]=@PosPerson[1]-1
+            AddArrows()
         end
         if (sentido=="sud" && AcutalCaveHasSouth())
             @PosPerson[1]=@PosPerson[1]+1
+            AddArrows()
         end
         if (sentido=="este" && AcutalCaveHasEast())
             @PosPerson[0]=@PosPerson[0]+1
+            AddArrows()
         end
         if (sentido=="oeste" && AcutalCaveHasWest())
             @PosPerson[0]=@PosPerson[0]-1
+            AddArrows()
         end
     end
     def ShowActualNumberOfCave

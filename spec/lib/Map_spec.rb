@@ -19,5 +19,13 @@ describe Map do
         @map.CreateCave(0, 1)
         expect(@map.SetStartPersonPos(0, 1)).to eq "Personaje agregado"
     end
-   
+    it "Si añado una cueva en la posicion 0,1 y asigno 3 flechas deberia mostrarme 3 Flechas añadidas" do
+        @map.CreateCave(0, 1)
+        expect(@map.AddArrowsToCave(0, 1, 3)).to eq "3 Flechas añadidas"
+    end
+    it "Si añado una cueva en la posicion 0,1, le asigno 3 flechas y saco las flechas que tiene esa cueva y vuelvo a sacar las flechas deberia devolver 0" do
+        @map.CreateCave(0, 1)
+        @map.PickUpArrows(0,1)
+        expect(@map.PickUpArrows(0, 1)).to eq 0
+    end
 end

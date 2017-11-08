@@ -29,3 +29,20 @@ Scenario:
             Given   Visito la pagina del juego
             When     presiono el boton "Ir al norte"
             Then    deberia mostrar el mensaje "Estas en la cueva Nº 1"
+Scenario:
+            Given   Visito la pagina del juego
+            Then    deberia mostrar el mensaje "Flechas: "
+
+Scenario:
+            Given   Visito la pagina del juego
+            When presiono el boton "Ir al sud"
+            And presiono el boton "Ir al sud"
+            And presiono el boton "Ir al sud"
+            And presiono el boton "Ir al este"
+            And presiono el boton "Ir al este"
+            Then deberia mostrar el mensaje "Siento un olor"
+
+Scenario:
+            Given   Visito la pagina del juego
+            And presiono el boton "Ir al este"
+            Then deberia mostrar el mensaje "El monstruo te atrapo"

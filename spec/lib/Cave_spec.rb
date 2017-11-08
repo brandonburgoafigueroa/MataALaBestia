@@ -29,6 +29,10 @@ describe Cave do
         @cave.AddNumberOfCave(1)
         expect(@cave.GetNumber).to eq 1
     end
+    it "Asigno 3 flechas a la cueva y pido las flechas deberia devolverme 3" do
+        @cave.AddArrow(3)
+        expect(@cave.PickUpArrows()).to eq 3
+    end
 end
 
 
