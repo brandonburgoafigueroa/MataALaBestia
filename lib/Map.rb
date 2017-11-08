@@ -78,10 +78,6 @@ class Map
         return @caves[posx][posy]
     end
     def HasCave(posx, posy)
-        if (@caves[posx][posy]==nil)
-            return false
-        else
-            return true
-        end
+        return !(@caves[posx][posy]==nil)   
     end
 end
