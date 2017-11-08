@@ -15,4 +15,8 @@ describe Game do
         @game.MovePerson("sud")
         expect(@game.QuantityArrows()).to eq 3
     end
+    it "Si cargo el mapa por defecto y hay una cueva en la posicion 0,1 y verifico si existe una cueva en esa posicion deberia devolver true" do
+        @game.StartDefault()
+        expect(@game.ThisPositionHasCave(0, 1)).to eq true
+    end
 end

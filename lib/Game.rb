@@ -9,7 +9,10 @@ class Game
         @PosMonster=@map.GetStartPosMonster()
         @Arrows=0
     end
-
+    def direccionAleatoria()
+        numero=rand(4)
+        
+    end
     def QuantityArrows()
         return @Arrows
     end
@@ -79,5 +82,7 @@ class Game
     def IsInTheSameRowAndNear()
         return (@PosMonster[1]-1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0] || @PosMonster[1]+1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0])  
     end
-
+    def ThisPositionHasCave(posx, posy)
+        return @map.HasCave(posx, posy)
+    end
 end  
