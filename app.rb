@@ -12,7 +12,7 @@ post '/' do
 end
 
 get '/Juego' do
-    
+
     erb :Juego
 end
 
@@ -26,6 +26,7 @@ end
 
 post '/AlSud' do
     $game.MovePerson("sud")
+    $game.MoveMonster()
     erb :Juego
 end
 
@@ -35,7 +36,7 @@ end
 
 post '/AlNorte' do
     $game.MovePerson("norte")
-
+    $game.MoveMonster()
     erb :Juego
 end
 
@@ -45,6 +46,7 @@ end
 
 post '/AlEste' do
     $game.MovePerson("este")
+    $game.MoveMonster()
     erb :Juego
 end
 
@@ -54,5 +56,6 @@ end
 
 post '/AlOeste' do
     $game.MovePerson("oeste")
+    $game.MoveMonster()
     erb :Juego
 end
