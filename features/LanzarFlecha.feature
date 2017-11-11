@@ -14,8 +14,3 @@ Scenario:
         Given   Visito la pagina del juego
         Then    deberia mostrar el boton "Lanzar Flecha Al Sud"        
         Scenario:
-Scenario:
-        Given   Visito la pagina del juego
-        When    presiono el boton "Ir Al Sud"
-        And     presiono el boton "Lanzar Flecha Al Sud"
-        Then    deberia mostrar el mensaje "Mataste al monstruo"
