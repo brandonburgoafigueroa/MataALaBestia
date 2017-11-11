@@ -170,4 +170,7 @@ class Game
     def GetPositionOfMonster()
         return @PosMonster
     end
+    def GetPositionOfPerson()
+        return @PosPerson
+    end
 end  
