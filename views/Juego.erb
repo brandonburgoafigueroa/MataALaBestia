@@ -48,7 +48,7 @@
       <tr>
         <td></td>
         <td align='center'>
-        <% if $game.GetDoors()[0] && $game.IsTheSamePosMonsterAndPerson()==false; %>
+        <% if $game.GetDoors()[0] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
          <form method='post' action='/AlNorte'>
            <input type='submit' value='Ir al norte' align='center'</td>
          </form>
@@ -68,7 +68,7 @@
       </tr>
       <tr>
         <td align='center'>
-        <% if $game.GetDoors()[3] && $game.IsTheSamePosMonsterAndPerson()==false; %>
+        <% if $game.GetDoors()[3] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
          <form method='post' action='/AlOeste'>
            <input type='submit' value='Ir al oeste'</td>
           </form>
@@ -86,7 +86,7 @@
         </td>
         <td></td>
         <td align='center'>
-        <% if $game.GetDoors()[2] && $game.IsTheSamePosMonsterAndPerson()==false; %>
+        <% if $game.GetDoors()[2] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
           <form method='post' action='/AlEste'>
             <input type='submit' value='Ir al este'</td>
           </form>
@@ -106,7 +106,7 @@
       <tr>
         <td></td>
         <td align='center'>
-          <% if $game.GetDoors()[1] && $game.IsTheSamePosMonsterAndPerson()==false; %>
+          <% if $game.GetDoors()[1] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
             
             <form method='post' action='/LanzarAlSud'>
               <input type='submit' value='Lanzar Flecha Al Sud'</td>
@@ -152,11 +152,11 @@
       <% if $game.IsTheSamePosMonsterAndPerson();%>
         El monstruo te atrapo
       <%end%>
-      <%if @KillMonster%>
-        mataste al monstruo
+      <%if @KillMonster && @Trow%>
+        Mataste al monstruo
+        <% elsif @Trow %>
+        La flecha choco contra la pared
         <%end%>
-        monster <%=$game.GetPositionOfMonster()%>
-        person <%=$game.GetPositionOfPerson()%>
     </p>
   </div>
 </div>

@@ -66,6 +66,7 @@ end
 
 post '/LanzarAlSud' do
     @KillMonster=$game.ThrowArrowToSouth()
+    @Trow=$game.HasArrows()
     erb :Juego
 end
 
@@ -75,6 +76,7 @@ end
 
 post '/LanzarAlNorte' do
     @KillMonster=$game.TrowArrowToNorth()
+    @Trow=$game.HasArrows()
     erb :Juego
 end
 
@@ -84,6 +86,7 @@ end
 
 post '/LanzarAlEste' do
     @KillMonster=$game.ThrowArrowToEast()
+    @Trow=$game.HasArrows()
     erb :Juego
 end
 
@@ -93,5 +96,6 @@ end
 
 post '/LanzarAlOeste' do
     @KillMonster=$game.ThrowArrowToWest()
+    @Trow=$game.HasArrows()
     erb :Juego
 end

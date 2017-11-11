@@ -174,4 +174,7 @@ class Game
     def GetPositionOfPerson()
         return @PosPerson
     end
+    def HasArrows()
+        return @Arrows>0    
+    end
 end  
