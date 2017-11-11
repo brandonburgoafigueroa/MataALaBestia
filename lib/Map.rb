@@ -22,7 +22,7 @@ class Map
         AssignDoors(2,3, false, false, true, true)
         AssignDoors(3,3, false, false, false, true)
         SetStartPersonPos(0,0)
-        SetStartMonsterPos(0,2)
+        SetStartMonsterPos(3,3)
         AddArrowsToCave(0, 1, 3)
     end
     def AddArrowsToCave(posx, posy, quantity)

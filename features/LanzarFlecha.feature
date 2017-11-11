@@ -13,4 +13,4 @@ Scenario:
 Scenario:
         Given   Visito la pagina del juego
         Then    deberia mostrar el boton "Lanzar Flecha Al Sud"        
-        Scenario:
+
