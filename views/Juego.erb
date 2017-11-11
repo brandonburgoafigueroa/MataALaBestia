@@ -47,53 +47,78 @@
     <table>
       <tr>
         <td></td>
-        <td>
-        <% if $game.GetDoors()[0] && $game.IsTheSamePosMonsterAndPerson()==false; %>
+        <td align='center'>
+        <% if $game.GetDoors()[0] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
          <form method='post' action='/AlNorte'>
-           <input type='submit' value='Ir al norte'</td>
+           <input type='submit' value='Ir al norte' align='center'</td>
+         </form>
+          <form method='post' action='/LanzarAlNorte'>
+           <input type='submit' value='Lanzar Flecha Al Norte'</td>
          </form>
         <%else%>
           <form method='post' action='/AlNorte'>
             <input type='submit' disabled value='Ir al norte'</td>
           </form>
+          <form method='post' action='/LanzarAlNorte'>
+           <input type='submit' disabled value='Lanzar Flecha Al Norte'</td>
+         </form>
         <% end %>
         </td>
         <td></td>
       </tr>
       <tr>
-        <td>
-        <% if $game.GetDoors()[3] && $game.IsTheSamePosMonsterAndPerson()==false; %>
+        <td align='center'>
+        <% if $game.GetDoors()[3] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
          <form method='post' action='/AlOeste'>
            <input type='submit' value='Ir al oeste'</td>
+          </form>
+          <form method='post' action='/LanzarAlOeste'>
+           <input type='submit' value='Lanzar Flecha Al Oeste'</td>
           </form>
         <%else%>
           <form method='post' action='/AlNorte'>
             <input type='submit' disabled value='Ir al oeste'</td>
           </form>
+          <form method='post' action='/LanzarAlNorte'>
+            <input type='submit' disabled value='Lanzar Flecha Al Oeste'</td>
+          </form>
         <% end %>
         </td>
         <td></td>
-        <td>
-        <% if $game.GetDoors()[2] && $game.IsTheSamePosMonsterAndPerson()==false; %>
+        <td align='center'>
+        <% if $game.GetDoors()[2] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
           <form method='post' action='/AlEste'>
             <input type='submit' value='Ir al este'</td>
+          </form>
+           <form method='post' action='/LanzarAlEste'>
+            <input type='submit' value='Lanzar Flecha Al Este'</td>
           </form>
           <%else%>
             <form method='post' action='/AlEste'>
               <input type='submit' disabled value='Ir al este'</td>
+            </form>
+            <form method='post' action='/LanzarAlEste'>
+              <input type='submit' disabled value='Lanzar Flecha Al Este'</td>
             </form>
           <% end %>
         </td>
       </tr>
       <tr>
         <td></td>
-        <td>
-          <% if $game.GetDoors()[1] && $game.IsTheSamePosMonsterAndPerson()==false; %>
+        <td align='center'>
+          <% if $game.GetDoors()[1] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
+            
+            <form method='post' action='/LanzarAlSud'>
+              <input type='submit' value='Lanzar Flecha Al Sud'</td>
+            </form>
             <form method='post' action='/AlSud'>
               <input type='submit' value='Ir al sud'</td>
             </form>
           <%else%>
-            <form method='post' action='/AlSud'>
+             <form method='post' action='/LanzarAlSud'>
+              <input type='submit' disabled value='Lanzar Flecha Al Sud'</td>
+            </form>
+             <form method='post' action='/AlSud'>
               <input type='submit' disabled value='Ir al sud'</td>
             </form>
           <% end %>
@@ -127,6 +152,11 @@
       <% if $game.IsTheSamePosMonsterAndPerson();%>
         El monstruo te atrapo
       <%end%>
+      <%if @KillMonster && @Trow%>
+        Mataste al monstruo
+        <% elsif @Trow %>
+        La flecha choco contra la pared
+        <%end%>
     </p>
   </div>
 </div>

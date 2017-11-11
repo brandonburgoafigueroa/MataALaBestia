@@ -12,6 +12,7 @@ post '/' do
 end
 
 get '/Juego' do
+
     erb :Juego
 end
 
@@ -25,6 +26,7 @@ end
 
 post '/AlSud' do
     $game.MovePerson("sud")
+    $game.MoveMonster()
     erb :Juego
 end
 
@@ -34,7 +36,7 @@ end
 
 post '/AlNorte' do
     $game.MovePerson("norte")
-
+    $game.MoveMonster()
     erb :Juego
 end
 
@@ -44,6 +46,7 @@ end
 
 post '/AlEste' do
     $game.MovePerson("este")
+    $game.MoveMonster()
     erb :Juego
 end
 
@@ -53,5 +56,46 @@ end
 
 post '/AlOeste' do
     $game.MovePerson("oeste")
+    $game.MoveMonster()
+    erb :Juego
+end
+
+get '/LanzarAlSud' do
+    erb :Juego
+end
+
+post '/LanzarAlSud' do
+    @KillMonster=$game.ThrowArrowToSouth()
+    @Trow=$game.HasArrows()
+    erb :Juego
+end
+
+get '/LanzarAlNorte' do
+    erb :Juego
+end
+
+post '/LanzarAlNorte' do
+    @KillMonster=$game.TrowArrowToNorth()
+    @Trow=$game.HasArrows()
+    erb :Juego
+end
+
+get '/LanzarAlEste' do
+    erb :Juego
+end
+
+post '/LanzarAlEste' do
+    @KillMonster=$game.ThrowArrowToEast()
+    @Trow=$game.HasArrows()
+    erb :Juego
+end
+
+get '/LanzarAlOeste' do
+    erb :Juego
+end
+
+post '/LanzarAlOeste' do
+    @KillMonster=$game.ThrowArrowToWest()
+    @Trow=$game.HasArrows()
     erb :Juego
 end

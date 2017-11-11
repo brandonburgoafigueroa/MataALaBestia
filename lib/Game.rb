@@ -9,7 +9,93 @@ class Game
         @PosMonster=@map.GetStartPosMonster()
         @Arrows=0
     end
+    def TrowArrowToNorth()
+        if (@Arrows>0)
+            @Arrows=@Arrows-1;
+            @PosArrow=[@PosPerson[0],@PosPerson[1]]
+            while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
+                @PosArrow[1]=@PosArrow[1]-1
+                if TheMonsterIsDied(@PosArrow)
+                    return true
+                end 
+            end
+            @map.AddArrowsToCave(@PosArrow[0], @PosArrow[1]+1, 1)
+            return false
+        end
+    end
+    def TheMonsterIsDied(pos)
+        return pos==@PosMonster
+    end
+    def ThrowArrowToSouth()
+        if (@Arrows>0)
+            @Arrows=@Arrows-1;
+            @PosArrow=[@PosPerson[0],@PosPerson[1]]
+            while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
+                if TheMonsterIsDied(@PosArrow)
+                    return true
+                end 
+                @PosArrow[1]=@PosArrow[1]+1
+            end
+            @map.AddArrowsToCave(@PosArrow[0], @PosArrow[1]-1, 1)
+            return false
+        end
+       
+    end
+    def ThrowArrowToEast()
+        if (@Arrows>0)
+            @Arrows=@Arrows-1;
+            @PosArrow=[@PosPerson[0],@PosPerson[1]]
+            while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
+                @PosArrow[0]=@PosArrow[0]-1
+                if TheMonsterIsDied(@PosArrow)
+                    return true
+                end 
+            end
+            @map.AddArrowsToCave(@PosArrow[0]+1, @PosArrow[1], 1)
+            return false
+        end
+        
+    end
+    def ThrowArrowToWest()
+        if (@Arrows>0)
+            @Arrows=@Arrows-1;
+            @PosArrow=[@PosPerson[0],@PosPerson[1]]
+            while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
+                @PosArrow[0]=@PosArrow[0]+1
+                if TheMonsterIsDied(@PosArrow)
+                    return true
+                end 
+            end
+            @map.AddArrowsToCave(@PosArrow[0]-1, @PosArrow[1]+1, 1)
+            return false
+        end
+        
+    end
 
+    def GetRandomCave()
+        @AvaiableCaves=[[]]
+        ind=0
+        if(ThisPositionHasCave(@PosMonster[0]+1, @PosMonster[1]))
+            @AvaiableCaves[ind]=[@PosMonster[0]+1, @PosMonster[1]]
+            ind=ind+1
+        end
+        if(ThisPositionHasCave(@PosMonster[0]-1, @PosMonster[1]))
+            @AvaiableCaves[ind]=[@PosMonster[0]-1, @PosMonster[1]]
+            ind=ind+1
+        end
+        if(ThisPositionHasCave(@PosMonster[0], @PosMonster[1]+1))
+            @AvaiableCaves[ind]=[@PosMonster[0], @PosMonster[1]+1]
+            ind=ind+1
+        end
+        if(ThisPositionHasCave(@PosMonster[0]+1, @PosMonster[1]-1))
+            @AvaiableCaves[ind]=[@PosMonster[0]+1, @PosMonster[1]-1]
+            ind=ind+1
+        end
+        return @AvaiableCaves[rand(@AvaiableCaves.length)]
+    end
+    def MoveMonster()
+        @PosMonster=GetRandomCave()
+    end
     def QuantityArrows()
         return @Arrows
     end
@@ -42,35 +128,22 @@ class Game
     end
     def AcutalCaveHasNorth()
         cave=@map.GetCave(@PosPerson[0], @PosPerson[1])
-        if (cave.IsAvaiableDoorNorth)
-            return true
-        else
-            return false
-        end
+        return cave.IsAvaiableDoorNorth
     end
     def AcutalCaveHasSouth()
         cave=@map.GetCave(@PosPerson[0], @PosPerson[1])
-        if (cave.IsAvaiableDoorSouth)
-            return true
-        else
-            return false
-        end
+        return cave.IsAvaiableDoorSouth
+            
     end
     def AcutalCaveHasEast()
         cave=@map.GetCave(@PosPerson[0], @PosPerson[1])
-        if (cave.IsAvaiableDoorEast)
-            return true
-        else
-            return false
-        end
+       return cave.IsAvaiableDoorEast
+            
     end
     def AcutalCaveHasWest()
         cave=@map.GetCave(@PosPerson[0], @PosPerson[1])
-        if (cave.IsAvaiableDoorWest)
-            return true
-        else
-            return false
-        end
+        return cave.IsAvaiableDoorWest
+        
     end
     def GetDoors()
         north=AcutalCaveHasNorth()
@@ -80,32 +153,28 @@ class Game
         return [north, south, east, west]
     end
     def IsTheSamePosMonsterAndPerson()
-        if (@PosMonster==@PosPerson)
-            return true
-        else
-            return false
-        end
+        return @PosMonster==@PosPerson
     end
     def IsNearTheMonster()
-        if (IsInTheSameColumnAndNear() || IsInTheSameRowAndNear())
-            return true
-        else
-            return false
-        end
+        return IsInTheSameColumnAndNear() || IsInTheSameRowAndNear()
+            
     end
     def IsInTheSameColumnAndNear()
-        if (@PosMonster[0]-1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1] || @PosMonster[0]+1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1])
-            true
-        else
-            false
-        end
+        return (@PosMonster[0]-1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1] || @PosMonster[0]+1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1])
     end
     def IsInTheSameRowAndNear()
-        if (@PosMonster[1]-1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0] || @PosMonster[1]+1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0])
-            true
-        else
-            false
-        end
+        return (@PosMonster[1]-1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0] || @PosMonster[1]+1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0])  
     end
-
+    def ThisPositionHasCave(posx, posy)
+        return @map.HasCave(posx, posy)
+    end
+    def GetPositionOfMonster()
+        return @PosMonster
+    end
+    def GetPositionOfPerson()
+        return @PosPerson
+    end
+    def HasArrows()
+        return @Arrows>0    
+    end
 end  

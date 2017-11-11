@@ -22,7 +22,7 @@ class Map
         AssignDoors(2,3, false, false, true, true)
         AssignDoors(3,3, false, false, false, true)
         SetStartPersonPos(0,0)
-        SetStartMonsterPos(3,3)
+        SetStartMonsterPos(0,2)
         AddArrowsToCave(0, 1, 3)
     end
     def AddArrowsToCave(posx, posy, quantity)
@@ -78,10 +78,11 @@ class Map
         return @caves[posx][posy]
     end
     def HasCave(posx, posy)
-        if (@caves[posx][posy]==nil)
-            return false
+        if (@caves[posx]!=nil && @caves[posx][posy]!=nil && posx>=0 && posy>=0)
+            return true  
         else
-            return true
-        end
+            return false
+        end    
+        
     end
 end
