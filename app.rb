@@ -59,3 +59,39 @@ post '/AlOeste' do
     $game.MoveMonster()
     erb :Juego
 end
+
+get '/LanzarAlSud' do
+    erb :Juego
+end
+
+post '/LanzarAlSud' do
+    $game.ThrowArrowToSouth()
+    erb :Juego
+end
+
+get '/LanzarAlNorte' do
+    erb :Juego
+end
+
+post '/LanzarAlNorte' do
+    $game.TrowArrowToNorth()
+    erb :Juego
+end
+
+get '/LanzarAlEste' do
+    erb :Juego
+end
+
+post '/LanzarAlEste' do
+    $game.ThrowArrowToEast()
+    erb :Juego
+end
+
+get '/LanzarAlOeste' do
+    erb :Juego
+end
+
+post '/LanzarAlOeste' do
+    $game.ThrowArrowToWest()
+    erb :Juego
+end

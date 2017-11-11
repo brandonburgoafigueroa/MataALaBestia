@@ -10,7 +10,7 @@ class Game
         @Arrows=0
     end
     def TrowArrowToNorth()
-        @PosArrow=@PosPerson
+        @PosArrow=[@PosPerson[0],@PosPerson[1]]
         while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
             @PosArrow[1]=@PosArrow[1]-1
             if TheMonsterDie(@PosArrow[0],@PosArrow[1])
@@ -21,7 +21,7 @@ class Game
         return false
     end
     def ThrowArrowToSouth()
-        @PosArrow=@PosPerson
+        @PosArrow=[@PosPerson[0],@PosPerson[1]]
         while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
             @PosArrow[1]=@PosArrow[1]+1
             if TheMonsterDie(@PosArrow[0],@PosArrow[1])
@@ -32,7 +32,7 @@ class Game
         return false
     end
     def ThrowArrowToEast()
-        @PosArrow=@PosPerson
+        @PosArrow=[@PosPerson[0],@PosPerson[1]]
         while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
             @PosArrow[0]=@PosArrow[0]-1
             if TheMonsterDie(@PosArrow[0],@PosArrow[1])
@@ -43,7 +43,7 @@ class Game
         return false
     end
     def ThrowArrowToWest()
-        @PosArrow=@PosPerson
+        @PosArrow=[@PosPerson[0],@PosPerson[1]]
         while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
             @PosArrow[0]=@PosArrow[0]+1
             if TheMonsterDie(@PosArrow[0],@PosArrow[1])
