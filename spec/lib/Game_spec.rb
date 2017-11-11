@@ -34,4 +34,13 @@ describe Game do
         @game.MovePerson("sud")
         expect(@game.ThrowArrowToSouth()).to eq true
     end
+    
+    it "Si inicio mapa por defecto, y obtengo la posicion del personaje deberia mostrarme [0,0]"do
+        @game.StartDefault()
+        expect(@game.GetPositionOfPerson()).to eq [0,0]
+    end
+    it "Si inicio mapa por defecto y quiero saber si tengo flechas y no tengo deberia devolver false"do
+        @game.StartDefault()
+        expect(@game.HasArrows()).to eq false
+    end
 end
