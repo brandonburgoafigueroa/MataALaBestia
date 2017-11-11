@@ -9,9 +9,29 @@ class Game
         @PosMonster=@map.GetStartPosMonster()
         @Arrows=0
     end
-    def direccionAleatoria()
-        numero=rand(4)
-        
+    def GetRandomCave()
+        @AvaiableCaves=[[]]
+        ind=0
+        if(ThisPositionHasCave(@PosMonster[0]+1, @PosMonster[1]))
+            @AvaiableCaves[ind]=[@PosMonster[0]+1, @PosMonster[1]]
+            ind=ind+1
+        end
+        if(ThisPositionHasCave(@PosMonster[0]-1, @PosMonster[1]))
+            @AvaiableCaves[ind]=[@PosMonster[0]-1, @PosMonster[1]]
+            ind=ind+1
+        end
+        if(ThisPositionHasCave(@PosMonster[0], @PosMonster[1]+1))
+            @AvaiableCaves[ind]=[@PosMonster[0], @PosMonster[1]+1]
+            ind=ind+1
+        end
+        if(ThisPositionHasCave(@PosMonster[0]+1, @PosMonster[1]-1))
+            @AvaiableCaves[ind]=[@PosMonster[0]+1, @PosMonster[1]-1]
+            ind=ind+1
+        end
+        return @AvaiableCaves[rand(@AvaiableCaves.length)]
+    end
+    def MoveMonster()
+        @PosMonster=GetRandomCave()
     end
     def QuantityArrows()
         return @Arrows
@@ -84,5 +104,8 @@ class Game
     end
     def ThisPositionHasCave(posx, posy)
         return @map.HasCave(posx, posy)
+    end
+    def GetPositionOfMonster()
+        return @PosMonster
     end
 end  

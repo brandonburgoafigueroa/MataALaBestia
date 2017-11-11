@@ -19,4 +19,9 @@ describe Game do
         @game.StartDefault()
         expect(@game.ThisPositionHasCave(0, 1)).to eq true
     end
+    it "Si inicio mapa por defecto, hay un monstruo en la posicion 3,3 y se mueve el personaje el monstruo debe estar en otra posicion" do
+        @game.StartDefault()
+        @game.MovePerson("sud")
+        expect(@game.MoveMonster()).not_to eq [3,3]
+    end
 end
