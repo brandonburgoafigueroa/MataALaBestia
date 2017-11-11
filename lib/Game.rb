@@ -9,6 +9,53 @@ class Game
         @PosMonster=@map.GetStartPosMonster()
         @Arrows=0
     end
+    def TrowArrowToNorth()
+        @PosArrow=@PosPerson
+        while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
+            @PosArrow[1]=@PosArrow[1]-1
+            if TheMonsterDie(@PosArrow[0],@PosArrow[1])
+                return true
+            end 
+        end
+        @map.AddArrowsToCave(@PosArrow[0], @PosArrow[1]+1, 1)
+        return false
+    end
+    def ThrowArrowToSouth()
+        @PosArrow=@PosPerson
+        while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
+            @PosArrow[1]=@PosArrow[1]+1
+            if TheMonsterDie(@PosArrow[0],@PosArrow[1])
+                return true
+            end 
+        end
+        @map.AddArrowsToCave(@PosArrow[0], @PosArrow[1]-1, 1)
+        return false
+    end
+    def ThrowArrowToEast()
+        @PosArrow=@PosPerson
+        while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
+            @PosArrow[0]=@PosArrow[0]-1
+            if TheMonsterDie(@PosArrow[0],@PosArrow[1])
+                return true
+            end 
+        end
+        @map.AddArrowsToCave(@PosArrow[0]+1, @PosArrow[1], 1)
+        return false
+    end
+    def ThrowArrowToWest()
+        @PosArrow=@PosPerson
+        while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
+            @PosArrow[0]=@PosArrow[0]+1
+            if TheMonsterDie(@PosArrow[0],@PosArrow[1])
+                return true
+            end 
+        end
+        @map.AddArrowsToCave(@PosArrow[0]-1, @PosArrow[1]+1, 1)
+        return false
+    end
+    def TheMonsterDie(posx, posy)
+        return posx==@PosMonster[0] && posy==@PosMonster[1]
+    end
     def GetRandomCave()
         @AvaiableCaves=[[]]
         ind=0
