@@ -15,7 +15,7 @@ class Game
             @PosArrow=[@PosPerson[0],@PosPerson[1]]
             while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
                 @PosArrow[1]=@PosArrow[1]-1
-                if TheMonsterDie(@PosArrow[0],@PosArrow[1])
+                if TheMonsterIsDied(@PosArrow)
                     return true
                 end 
             end
@@ -23,15 +23,18 @@ class Game
             return false
         end
     end
+    def TheMonsterIsDied(pos)
+        return pos==@PosMonster
+    end
     def ThrowArrowToSouth()
         if (@Arrows>0)
             @Arrows=@Arrows-1;
             @PosArrow=[@PosPerson[0],@PosPerson[1]]
             while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
-                @PosArrow[1]=@PosArrow[1]+1
-                if TheMonsterDie(@PosArrow[0],@PosArrow[1])
+                if TheMonsterIsDied(@PosArrow)
                     return true
                 end 
+                @PosArrow[1]=@PosArrow[1]+1
             end
             @map.AddArrowsToCave(@PosArrow[0], @PosArrow[1]-1, 1)
             return false
@@ -44,7 +47,7 @@ class Game
             @PosArrow=[@PosPerson[0],@PosPerson[1]]
             while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
                 @PosArrow[0]=@PosArrow[0]-1
-                if TheMonsterDie(@PosArrow[0],@PosArrow[1])
+                if TheMonsterIsDied(@PosArrow)
                     return true
                 end 
             end
@@ -59,7 +62,7 @@ class Game
             @PosArrow=[@PosPerson[0],@PosPerson[1]]
             while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
                 @PosArrow[0]=@PosArrow[0]+1
-                if TheMonsterDie(@PosArrow[0],@PosArrow[1])
+                if TheMonsterIsDied(@PosArrow)
                     return true
                 end 
             end
@@ -68,9 +71,7 @@ class Game
         end
         
     end
-    def TheMonsterDie(posx, posy)
-        return posx==@PosMonster[0] && posy==@PosMonster[1]
-    end
+
     def GetRandomCave()
         @AvaiableCaves=[[]]
         ind=0

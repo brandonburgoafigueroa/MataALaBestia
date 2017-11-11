@@ -65,7 +65,7 @@ get '/LanzarAlSud' do
 end
 
 post '/LanzarAlSud' do
-    $game.ThrowArrowToSouth()
+    @KillMonster=$game.ThrowArrowToSouth()
     erb :Juego
 end
 
@@ -74,7 +74,7 @@ get '/LanzarAlNorte' do
 end
 
 post '/LanzarAlNorte' do
-    $game.TrowArrowToNorth()
+    @KillMonster=$game.TrowArrowToNorth()
     erb :Juego
 end
 
@@ -83,7 +83,7 @@ get '/LanzarAlEste' do
 end
 
 post '/LanzarAlEste' do
-    $game.ThrowArrowToEast()
+    @KillMonster=$game.ThrowArrowToEast()
     erb :Juego
 end
 
@@ -92,6 +92,6 @@ get '/LanzarAlOeste' do
 end
 
 post '/LanzarAlOeste' do
-    $game.ThrowArrowToWest()
+    @KillMonster=$game.ThrowArrowToWest()
     erb :Juego
 end

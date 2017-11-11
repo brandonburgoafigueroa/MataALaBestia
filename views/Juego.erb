@@ -152,6 +152,11 @@
       <% if $game.IsTheSamePosMonsterAndPerson();%>
         El monstruo te atrapo
       <%end%>
+      <%if @KillMonster%>
+        mataste al monstruo
+        <%end%>
+        monster <%=$game.GetPositionOfMonster()%>
+        person <%=$game.GetPositionOfPerson()%>
     </p>
   </div>
 </div>
