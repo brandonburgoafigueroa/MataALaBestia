@@ -47,10 +47,10 @@
     <table>
       <tr>
         <td></td>
-        <td>
+        <td align='center'>
         <% if $game.GetDoors()[0] && $game.IsTheSamePosMonsterAndPerson()==false; %>
          <form method='post' action='/AlNorte'>
-           <input type='submit' value='Ir al norte'</td>
+           <input type='submit' value='Ir al norte' align='center'</td>
          </form>
           <form method='post' action='/AlNorte'>
            <input type='submit' value='Lanzar Flecha Al Norte'</td>
@@ -67,7 +67,7 @@
         <td></td>
       </tr>
       <tr>
-        <td>
+        <td align='center'>
         <% if $game.GetDoors()[3] && $game.IsTheSamePosMonsterAndPerson()==false; %>
          <form method='post' action='/AlOeste'>
            <input type='submit' value='Ir al oeste'</td>
@@ -85,7 +85,7 @@
         <% end %>
         </td>
         <td></td>
-        <td>
+        <td align='center'>
         <% if $game.GetDoors()[2] && $game.IsTheSamePosMonsterAndPerson()==false; %>
           <form method='post' action='/AlEste'>
             <input type='submit' value='Ir al este'</td>
@@ -105,20 +105,21 @@
       </tr>
       <tr>
         <td></td>
-        <td>
+        <td align='center'>
           <% if $game.GetDoors()[1] && $game.IsTheSamePosMonsterAndPerson()==false; %>
-            <form method='post' action='/AlSud'>
-              <input type='submit' value='Ir al sud'</td>
-            </form>
+            
             <form method='post' action='/AlSud'>
               <input type='submit' value='Lanzar Flecha Al Sud'</td>
             </form>
-          <%else%>
             <form method='post' action='/AlSud'>
-              <input type='submit' disabled value='Ir al sud'</td>
+              <input type='submit' value='Ir al sud'</td>
             </form>
+          <%else%>
              <form method='post' action='/AlSud'>
               <input type='submit' disabled value='Lanzar Flecha Al Sud'</td>
+            </form>
+             <form method='post' action='/AlSud'>
+              <input type='submit' disabled value='Ir al sud'</td>
             </form>
           <% end %>
               
