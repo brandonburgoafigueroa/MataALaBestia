@@ -24,12 +24,14 @@ describe Game do
         @game.MovePerson("sud")
         expect(@game.MoveMonster()).not_to eq [3,3]
     end
-    it "Si inicio mapa por defecto, lanzo una flecha al sud y no hay monstruo deberia mostrar false" do
+    it "Si inicio mapa por defecto, lanzo una flecha al sud y no hay monstruo deberia mostrar true" do
         @game.StartDefault()
-        expect(@game.ThrowArrowToSouth()).to eq false
+        @game.MovePerson("sud")
+        expect(@game.ThrowArrowToSouth()).to eq true
     end
-    it "Si inicio mapa por defecto, lanzo una flecha al sud y no mato al monstruo deberia mostrar false" do
+    it "Si inicio mapa por defecto, lanzo una flecha al sud y no mato al monstruo deberia mostrar true" do
         @game.StartDefault()
-        expect(@game.ThrowArrowToSouth()).to eq false
+        @game.MovePerson("sud")
+        expect(@game.ThrowArrowToSouth()).to eq true
     end
 end
