@@ -98,8 +98,8 @@ class Game
             @AvaiableCaves[ind]=[@PosMonster[0], @PosMonster[1]+1]
             ind=ind+1
         end
-        if(ThisPositionHasCave(@PosMonster[0]+1, @PosMonster[1]-1))
-            @AvaiableCaves[ind]=[@PosMonster[0]+1, @PosMonster[1]-1]
+        if(ThisPositionHasCave(@PosMonster[0], @PosMonster[1]-1))
+            @AvaiableCaves[ind]=[@PosMonster[0], @PosMonster[1]-1]
             ind=ind+1
         end
         return @AvaiableCaves[rand(@AvaiableCaves.length)]
@@ -119,8 +119,8 @@ class Game
             @AvaiableCaves[ind]=[@PosPerson[0], @PosPerson[1]+1]
             ind=ind+1
         end
-        if(ThisPositionHasCave(@PosPerson[0]+1, @PosPerson[1]-1))
-            @AvaiableCaves[ind]=[@PosPerson[0]+1, @PosPerson[1]-1]
+        if(ThisPositionHasCave(@PosPerson[0], @PosPerson[1]-1))
+            @AvaiableCaves[ind]=[@PosPerson[0], @PosPerson[1]-1]
             ind=ind+1
         end
         return @AvaiableCaves[rand(@AvaiableCaves.length)]

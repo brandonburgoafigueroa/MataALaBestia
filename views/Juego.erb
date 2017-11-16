@@ -150,22 +150,22 @@
     <h2>Mensajes:</h2>
     <p>
       <% if $game.IsNearTheMonster();%>
-        Siento un olor
+      <br/>  Siento un olor
       <%end%>
       <% if $game.IsTheSamePosMonsterAndPerson();%>
-      El monstruo te atrapo
+     <br/> El monstruo te atrapo
     <%end%>
       <% if $game.IsBatIsNearOfPerson();%>
-        Oigo un sonido
+       <br/> Oigo un sonido
       <%end%>
       <% if @move%>
-          El murcielago te movio
+         <br/> El murcielago te movio
     <%end%>
       
       <%if @KillMonster && @Trow%>
-        Mataste al monstruo
+       <br/> Mataste al monstruo
         <% elsif @Trow %>
-        La flecha choco contra la pared
+        <br/>La flecha choco contra la pared
         <%end%>
     </p>
   </div>
