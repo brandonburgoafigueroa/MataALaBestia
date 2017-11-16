@@ -3,6 +3,8 @@ require './lib/Game.rb'
 
 $game=Game.new
 $game.StartDefault()
+
+
 get '/' do
     erb :PantallaPrincipal
 end
@@ -27,6 +29,7 @@ end
 post '/AlSud' do
     $game.MovePerson("sud")
     $game.MoveMonster()
+    $game.IsInTheSamePosBatAndPerson()
     erb :Juego
 end
 
@@ -37,6 +40,7 @@ end
 post '/AlNorte' do
     $game.MovePerson("norte")
     $game.MoveMonster()
+    $game.IsInTheSamePosBatAndPerson()
     erb :Juego
 end
 
@@ -47,6 +51,7 @@ end
 post '/AlEste' do
     $game.MovePerson("este")
     $game.MoveMonster()
+    $game.IsInTheSamePosBatAndPerson()
     erb :Juego
 end
 
@@ -57,6 +62,7 @@ end
 post '/AlOeste' do
     $game.MovePerson("oeste")
     $game.MoveMonster()
+    $game.IsInTheSamePosBatAndPerson()
     erb :Juego
 end
 
@@ -67,6 +73,7 @@ end
 post '/LanzarAlSud' do
     @KillMonster=$game.ThrowArrowToSouth()
     @Trow=$game.HasArrows()
+    
     erb :Juego
 end
 
@@ -77,6 +84,7 @@ end
 post '/LanzarAlNorte' do
     @KillMonster=$game.TrowArrowToNorth()
     @Trow=$game.HasArrows()
+ 
     erb :Juego
 end
 
@@ -87,6 +95,7 @@ end
 post '/LanzarAlEste' do
     @KillMonster=$game.ThrowArrowToEast()
     @Trow=$game.HasArrows()
+    
     erb :Juego
 end
 
@@ -97,5 +106,6 @@ end
 post '/LanzarAlOeste' do
     @KillMonster=$game.ThrowArrowToWest()
     @Trow=$game.HasArrows()
+  
     erb :Juego
 end

@@ -155,9 +155,13 @@
       <% if $game.IsTheSamePosMonsterAndPerson();%>
       El monstruo te atrapo
     <%end%>
-      <% if $game.TheBatIsInTheSameColumnAndNear();%>
-        El Murcielago te movio de posicion
+      <% if $game.IsBatIsNearOfPerson();%>
+        Oigo un sonido
       <%end%>
+      <% if $game.IsInTheSamePosBatAndPerson();%>
+          El murcielago te movio
+    <%end%>
+      
       <%if @KillMonster && @Trow%>
         Mataste al monstruo
         <% elsif @Trow %>
