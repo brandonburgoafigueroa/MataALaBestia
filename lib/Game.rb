@@ -9,11 +9,9 @@ class Game
         @PosMonster=@map.GetStartPosMonster()
         @PosBat=@map.GetStartPosBat()
         @Arrows=0
+        @Sprays=0
     end
-    def IsBatIsNearOfPerson()
-        return TheBatIsInTheSameColumnAndNear() || TheBatIsInTheSameRowAndNear()
-
-    end
+    
     def setPosBat(posX,posY)
         @PosBat[0]=posX
         @PosBat[1]=posY
@@ -137,11 +135,20 @@ class Game
     def QuantityArrows()
         return @Arrows
     end
+    def QuantitySprays()
+        return @Sprays
+    end
     def AddArrows()
         @Arrows=@Arrows+ActualCaveGetArrows()  
     end
+    def AddSprays()
+        @Sprays=@Sprays+ActualCaveGetSprays() 
+    end
     def ActualCaveGetArrows()
         return @map.PickUpArrows(@PosPerson[0], @PosPerson[1])
+    end
+    def ActualCaveGetSprays()
+        return @map.PickUpSprays(@PosPerson[0], @PosPerson[1])
     end
     def MovePerson(sentido)
         if (sentido=="norte" && AcutalCaveHasNorth())
@@ -198,6 +205,10 @@ class Game
         return IsInTheSameColumnAndNear() || IsInTheSameRowAndNear()
             
     end
+    def IsBatIsNearOfPerson()
+        return TheBatIsInTheSameColumnAndNear() || TheBatIsInTheSameRowAndNear()
+
+    end
     def IsInTheSameColumnAndNear()
         return (@PosMonster[0]-1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1] || @PosMonster[0]+1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1])
     end
@@ -221,5 +232,8 @@ class Game
     end
     def HasArrows()
         return @Arrows>0    
+    end
+    def HasSprays()
+        return @Sprays>0    
     end
 end  
