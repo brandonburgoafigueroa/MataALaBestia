@@ -7,6 +7,7 @@ class Game
         @map.Default()
         @PosPerson=@map.GetStartPosPerson()
         @PosMonster=@map.GetStartPosMonster()
+        @PosBat=@map.GetStartPosBat()
         @Arrows=0
     end
     def TrowArrowToNorth()

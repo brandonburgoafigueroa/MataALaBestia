@@ -5,6 +5,7 @@ class Map
         @LastCave=0
         @PosPersonStart=[]
         @PosMonsterStart=[]
+        @PosBatStart=[]
     end
     def Default()
         CreateCave(0,0)
@@ -46,8 +47,19 @@ class Map
             return false
         end
     end
+    def GetStartPosBat()
+        return @PosBatStart
+    end
     def GetStartPosMonster()
         return @PosMonsterStart
+    end
+    def SetStartBatPos(posx, posy)
+        if (HasCave(posx, posy))
+            @PosBatStart=[posx, posy]
+            return "Murcielago agregado"
+        else
+            return false
+        end
     end
     def SetStartMonsterPos(posx, posy)
         if (HasCave(posx, posy))
