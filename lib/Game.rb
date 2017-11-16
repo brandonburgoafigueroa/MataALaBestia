@@ -235,6 +235,7 @@ end
                     @PosPerson=GetRandomPerson()
                     return true
                 end
+                return false
 
     end
     def ThisPositionHasCave(posx, posy)

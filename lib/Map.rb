@@ -24,7 +24,7 @@ class Map
         AssignDoors(3,3, false, false, false, true)
         SetStartPersonPos(0,0)
         SetStartMonsterPos(3,3)
-        SetStartBatPos(0,1)
+        SetStartBatPos(0,2)
         AddArrowsToCave(0, 1, 3)
         AddSpraysToCave(0, 1, 3)
     end

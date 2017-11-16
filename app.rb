@@ -29,7 +29,7 @@ end
 post '/AlSud' do
     $game.MovePerson("sud")
     $game.MoveMonster()
-    $game.IsInTheSamePosBatAndPerson()
+    @move=$game.IsInTheSamePosBatAndPerson()
     erb :Juego
 end
 
@@ -40,7 +40,7 @@ end
 post '/AlNorte' do
     $game.MovePerson("norte")
     $game.MoveMonster()
-    $game.IsInTheSamePosBatAndPerson()
+    @move=$game.IsInTheSamePosBatAndPerson()
     erb :Juego
 end
 
@@ -51,7 +51,7 @@ end
 post '/AlEste' do
     $game.MovePerson("este")
     $game.MoveMonster()
-    $game.IsInTheSamePosBatAndPerson()
+    @move=$game.IsInTheSamePosBatAndPerson()
     erb :Juego
 end
 
@@ -62,7 +62,7 @@ end
 post '/AlOeste' do
     $game.MovePerson("oeste")
     $game.MoveMonster()
-    $game.IsInTheSamePosBatAndPerson()
+    @move=$game.IsInTheSamePosBatAndPerson()
     erb :Juego
 end
 
