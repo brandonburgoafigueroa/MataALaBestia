@@ -152,9 +152,11 @@
       <% if $game.IsNearTheMonster();%>
         Siento un olor
       <%end%>
-      
       <% if $game.IsTheSamePosMonsterAndPerson();%>
-        El monstruo te atrapo
+      El monstruo te atrapo
+    <%end%>
+      <% if $game.TheBatIsInTheSameColumnAndNear();%>
+        El Murcielago te movio de posicion
       <%end%>
       <%if @KillMonster && @Trow%>
         Mataste al monstruo

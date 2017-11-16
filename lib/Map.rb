@@ -24,7 +24,9 @@ class Map
         AssignDoors(3,3, false, false, false, true)
         SetStartPersonPos(0,0)
         SetStartMonsterPos(3,3)
+        SetStartBatPos(2,3)
         AddArrowsToCave(0, 1, 3)
+        AddSpraysToCave(0, 1, 3)
     end
     def AddArrowsToCave(posx, posy, quantity)
         if (HasCave(posx, posy))
