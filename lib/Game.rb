@@ -10,6 +10,18 @@ class Game
         @PosBat=@map.GetStartPosBat()
         @Arrows=0
     end
+    def IsBatIsNearOfPerson()
+        return TheBatIsInTheSameColumnAndNear() || TheBatIsInTheSameRowAndNear()
+
+    end
+    def setPosBat(posX,posY)
+        @PosBat[0]=posX
+        @PosBat[1]=posY
+    end
+    def setPosPerson(posX,posY)
+        @PosPerson[0]=posX
+        @PosPerson[1]=posY
+    end
     def TrowArrowToNorth()
         if (@Arrows>0)
             @Arrows=@Arrows-1;
@@ -94,8 +106,12 @@ class Game
         end
         return @AvaiableCaves[rand(@AvaiableCaves.length)]
     end
+    
     def MoveMonster()
         @PosMonster=GetRandomCave()
+    end
+    def MoveRandomPerson()
+        @PosPerson=GetRandomCave()
     end
     def QuantityArrows()
         return @Arrows
@@ -124,6 +140,7 @@ class Game
             AddArrows()
         end
     end
+    
     def ShowActualNumberOfCave
         return @map.GetNumberCaveOfPos(@PosPerson[0], @PosPerson[1])
     end
@@ -163,8 +180,14 @@ class Game
     def IsInTheSameColumnAndNear()
         return (@PosMonster[0]-1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1] || @PosMonster[0]+1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1])
     end
+    def TheBatIsInTheSameColumnAndNear()
+        return (@PosBat[0]-1==@PosPerson[0] && @PosBat[1]==@PosPerson[1] || @PosBat[0]+1==@PosPerson[0] && @PosBat[1]==@PosPerson[1])
+    end
     def IsInTheSameRowAndNear()
         return (@PosMonster[1]-1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0] || @PosMonster[1]+1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0])  
+    end
+    def TheBatIsInTheSameRowAndNear()
+        return (@PosBat[1]-1==@PosPerson[1] && @PosBat[0]==@PosPerson[0] || @PosBat[1]+1==@PosPerson[1] && @PosBat[0]==@PosPerson[0])  
     end
     def ThisPositionHasCave(posx, posy)
         return @map.HasCave(posx, posy)

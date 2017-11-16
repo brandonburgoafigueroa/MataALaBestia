@@ -24,6 +24,12 @@ describe Game do
         @game.MovePerson("sud")
         expect(@game.MoveMonster()).not_to eq [3,3]
     end
+    it "Si la posicion 0 1 esta la persona y en la posicion 0 2 esta el murcielago, deberia mostrar true" do
+        @game.StartDefault()
+        @game.setPosBat(0,2)
+        @game.setPosPerson(0,1)
+        expect(@game.IsBatIsNearOfPerson).to eq true
+    end
    
     
     
