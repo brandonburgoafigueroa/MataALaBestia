@@ -7,6 +7,7 @@ class Cave
          @DoorWest=false
          @NumberOfCave=0
          @Arrows=0
+         @Spray=0
      end
      def DoorsAvaiable(north, south, east, west)
          ShowDoorNorth(north)
@@ -42,6 +43,10 @@ class Cave
          @Arrows=@Arrows+quantity
          return quantity.to_s+" Flechas añadidas"
      end
+     def AddSpray(quantity)
+        @Spray=@Spray+quantity
+        return quantity.to_s+" Sprays añadidas"
+    end
      def AddNumberOfCave(number)
          @NumberOfCave=number
      end
@@ -51,6 +56,11 @@ class Cave
      def PickUpArrows()
         quantity=@Arrows
         @Arrows=0
+        return quantity
+     end
+     def PickUpSprays()
+        quantity=@Spray
+        @Spray=0
         return quantity
      end
      

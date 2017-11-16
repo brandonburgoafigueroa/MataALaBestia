@@ -32,4 +32,9 @@ describe Map do
         @map.PickUpArrows(0,1)
         expect(@map.PickUpArrows(0, 1)).to eq 0
     end
+    it "Si añado una cueva en la posicion 0,1, le asigno 3 sprays y saco los sprays que tiene esa cueva y vuelvo a sacar los sprays deberia devolver 0" do
+        @map.CreateCave(0, 1)
+        @map.PickUpSprays(0,1)
+        expect(@map.PickUpSprays(0, 1)).to eq 0
+    end
 end

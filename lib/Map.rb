@@ -33,8 +33,18 @@ class Map
             return "No existe cueva en esta posicion"
         end
     end
+    def AddSpraysToCave(posx, posy, quantity)
+        if (HasCave(posx, posy))
+            return @caves[posx][posy].AddSpray(quantity)
+        else
+            return "No existe cueva en esta posicion"
+        end
+    end
     def PickUpArrows(posx, posy)
         return @caves[posx][posy].PickUpArrows()
+    end
+    def PickUpSprays(posx, posy)
+        return @caves[posx][posy].PickUpSprays()
     end
     def GetStartPosPerson()
         return @PosPersonStart
