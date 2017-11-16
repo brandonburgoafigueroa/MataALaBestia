@@ -106,6 +106,27 @@ class Game
         end
         return @AvaiableCaves[rand(@AvaiableCaves.length)]
     end
+    def GetRandomPerson()
+        @AvaiableCaves=[[]]
+        ind=0
+        if(ThisPositionHasCave(@PosPerson[0]+1, @PosPerson[1]))
+            @AvaiableCaves[ind]=[@PosPerson[0]+1, @PosPerson[1]]
+            ind=ind+1
+        end
+        if(ThisPositionHasCave(@PosPerson[0]-1, @PosPerson[1]))
+            @AvaiableCaves[ind]=[@PosPerson[0]-1, @PosPerson[1]]
+            ind=ind+1
+        end
+        if(ThisPositionHasCave(@PosPerson[0], @PosPerson[1]+1))
+            @AvaiableCaves[ind]=[@PosPerson[0], @PosPerson[1]+1]
+            ind=ind+1
+        end
+        if(ThisPositionHasCave(@PosPerson[0]+1, @PosPerson[1]-1))
+            @AvaiableCaves[ind]=[@PosPerson[0]+1, @PosPerson[1]-1]
+            ind=ind+1
+        end
+        return @AvaiableCaves[rand(@AvaiableCaves.length)]
+    end
     
     def MoveMonster()
         @PosMonster=GetRandomCave()
