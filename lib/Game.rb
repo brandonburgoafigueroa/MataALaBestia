@@ -6,7 +6,7 @@ class Game
     def StartDefault()
         @map.Default()
         @PosPerson=@map.GetStartPosPerson()
-        @PosWaterWell=@map.GetPosWaterWell()
+        @PosWaterWell=@map.GetStartPosWeaterWell()
         @PosMonster=@map.GetStartPosMonster()
         @PosBat=@map.GetStartPosBat()
         @Arrows=0
@@ -217,10 +217,13 @@ class Game
         return IsInTheSameColumnAndNear() || IsInTheSameRowAndNear()
             
     end
+    def IsNearTheWeaterWell()
+        return IsTheWaterWeelInTheSameColumnAndNear() || IsTheWaterWellInTheSameRowAndNear()
+            
+    end
     
     def IsBatIsNearOfPerson()
         return TheBatIsInTheSameColumnAndNear() || TheBatIsInTheSameRowAndNear()
-
     end
     def IsInTheSameColumnAndNear()
         return (@PosMonster[0]-1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1] || @PosMonster[0]+1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1])

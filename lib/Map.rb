@@ -25,7 +25,7 @@ class Map
         AssignDoors(3,3, false, false, false, true)
         SetStartPersonPos(0,0)
         SetStartMonsterPos(3,3)
-        SetStartBatPos(0,2)
+        SetStartBatPos(0,3)
         SetStartWaterWellPos(0,3)
         AddArrowsToCave(0, 1, 3)
         AddSpraysToCave(0, 1, 3)
@@ -78,7 +78,7 @@ class Map
             return false
         end
     end
-    def SetStartWeaterWellPos(posx, posy)
+    def SetStartWaterWellPos(posx, posy)
         if (HasCave(posx, posy))
             @PosWeaterWellStart=[posx, posy]
             return "Pozo agregado"
