@@ -26,7 +26,7 @@ class Map
         SetStartPersonPos(0,0)
         SetStartMonsterPos(3,3)
         SetStartBatPos(0,3)
-        SetStartWaterWellPos(0,3)
+        SetStartWaterWellPos(0,2)
         AddArrowsToCave(0, 1, 3)
         AddSpraysToCave(0, 1, 3)
     end

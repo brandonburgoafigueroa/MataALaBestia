@@ -30,6 +30,7 @@ post '/AlSud' do
     $game.MovePerson("sud")
     $game.MoveMonster()
     @move=$game.IsInTheSamePosBatAndPerson()
+    @weaterwell=$game.IsInTheSamePosWaterWellAndPersonMove()
     erb :Juego
 end
 
@@ -41,6 +42,7 @@ post '/AlNorte' do
     $game.MovePerson("norte")
     $game.MoveMonster()
     @move=$game.IsInTheSamePosBatAndPerson()
+    @weaterwell=$game.IsInTheSamePosWaterWellAndPersonMove()
     erb :Juego
 end
 
@@ -52,6 +54,7 @@ post '/AlEste' do
     $game.MovePerson("este")
     $game.MoveMonster()
     @move=$game.IsInTheSamePosBatAndPerson()
+    @weaterwell=$game.IsInTheSamePosWaterWellAndPersonMove()
     erb :Juego
 end
 
@@ -63,6 +66,7 @@ post '/AlOeste' do
     $game.MovePerson("oeste")
     $game.MoveMonster()
     @move=$game.IsInTheSamePosBatAndPerson()
+    @weaterwell=$game.IsInTheSamePosWaterWellAndPersonMove()
     erb :Juego
 end
 

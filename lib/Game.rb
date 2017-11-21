@@ -249,7 +249,8 @@ class Game
         return (@PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0] || @PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0])  
     end
     def IsInTheSamePosWaterWellAndPersonMove()
-        return (@PosWaterWell[1]==@PosPerson[1] && @PosWaterWell[0]==@PosPerson[0] || @PosWaterWell[1]==@PosPerson[1] && @PosWaterWell[0]==@PosPerson[0])  
+        return (@PosWaterWell[1]==@PosPerson[1] && @PosWaterWell[0]==@PosPerson[0] || @PosWaterWell[1]==@PosPerson[1] && @PosWaterWell[0]==@PosPerson[0]) 
+        
     end
     def IsInTheSamePosBatAndPerson()
                 if (@PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0] || @PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0])  
