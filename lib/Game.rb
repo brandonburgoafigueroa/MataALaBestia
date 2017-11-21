@@ -6,6 +6,7 @@ class Game
     def StartDefault()
         @map.Default()
         @PosPerson=@map.GetStartPosPerson()
+        @PosWaterWell=@map.GetPosWaterWell()
         @PosMonster=@map.GetStartPosMonster()
         @PosBat=@map.GetStartPosBat()
         @Arrows=0
@@ -37,6 +38,7 @@ class Game
     def TheMonsterIsDied(pos)
         return pos==@PosMonster
     end
+    
     def ThrowArrowToSouth()
         if (@Arrows>0)
             @Arrows=@Arrows-1;
@@ -208,6 +210,9 @@ class Game
     def IsTheSamePosMonsterAndPerson()
         return @PosMonster==@PosPerson
     end
+    def IsTheSamePosWaterWellAndPerson()
+        return @PosWaterWell==@PosPerson
+    end
     def IsNearTheMonster()
         return IsInTheSameColumnAndNear() || IsInTheSameRowAndNear()
             
@@ -220,8 +225,12 @@ class Game
     def IsInTheSameColumnAndNear()
         return (@PosMonster[0]-1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1] || @PosMonster[0]+1==@PosPerson[0] && @PosMonster[1]==@PosPerson[1])
     end
+    
     def TheBatIsInTheSameColumnAndNear()
         return (@PosBat[0]-1==@PosPerson[0] && @PosBat[1]==@PosPerson[1] || @PosBat[0]+1==@PosPerson[0] && @PosBat[1]==@PosPerson[1])
+    end
+    def IsTheWaterWeelInTheSameColumnAndNear()
+        return (@PosWaterWell[0]-1==@PosPerson[0] && @PosWaterWell[1]==@PosPerson[1] || @PosWaterWell[0]+1==@PosPerson[0] && @PosWaterWell[1]==@PosPerson[1])
     end
     def IsInTheSameRowAndNear()
         return (@PosMonster[1]-1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0] || @PosMonster[1]+1==@PosPerson[1] && @PosMonster[0]==@PosPerson[0])  
@@ -230,9 +239,15 @@ class Game
 
         return (@PosBat[1]-1==@PosPerson[1] && @PosBat[0]==@PosPerson[0] || @PosBat[1]+1==@PosPerson[1] && @PosBat[0]==@PosPerson[0])  
     end
+    def IsTheWaterWellInTheSameRowAndNear()
+        return (@PosWaterWell[1]-1==@PosPerson[1] && @PosWaterWell[0]==@PosPerson[0] || @PosWaterWell[1]+1==@PosPerson[1] && @PosWaterWell[0]==@PosPerson[0])  
+    end
     def IsInTheSamePosBatAndPersonMove()
         return (@PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0] || @PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0])  
-end
+    end
+    def IsInTheSamePosWaterWellAndPersonMove()
+        return (@PosWaterWell[1]==@PosPerson[1] && @PosWaterWell[0]==@PosPerson[0] || @PosWaterWell[1]==@PosPerson[1] && @PosWaterWell[0]==@PosPerson[0])  
+    end
     def IsInTheSamePosBatAndPerson()
                 if (@PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0] || @PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0])  
                     

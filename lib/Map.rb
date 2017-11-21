@@ -6,6 +6,7 @@ class Map
         @PosPersonStart=[]
         @PosMonsterStart=[]
         @PosBatStart=[]
+        @PosWeaterWellStart=[]
     end
     def Default()
         CreateCave(0,0)
@@ -25,6 +26,7 @@ class Map
         SetStartPersonPos(0,0)
         SetStartMonsterPos(3,3)
         SetStartBatPos(0,2)
+        SetStartWaterWellPos(0,3)
         AddArrowsToCave(0, 1, 3)
         AddSpraysToCave(0, 1, 3)
     end
@@ -59,16 +61,27 @@ class Map
             return false
         end
     end
-    def GetStartPosBat()
-        return @PosBatStart
+    def GetStartPosWeaterWell()
+        return @PosWeaterWellStart
     end
     def GetStartPosMonster()
         return @PosMonsterStart
+    end
+    def GetStartPosBat()
+        return @PosBatStart
     end
     def SetStartBatPos(posx, posy)
         if (HasCave(posx, posy))
             @PosBatStart=[posx, posy]
             return "Murcielago agregado"
+        else
+            return false
+        end
+    end
+    def SetStartWeaterWellPos(posx, posy)
+        if (HasCave(posx, posy))
+            @PosWeaterWellStart=[posx, posy]
+            return "Pozo agregado"
         else
             return false
         end

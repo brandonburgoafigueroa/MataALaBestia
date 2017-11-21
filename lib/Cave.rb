@@ -8,6 +8,7 @@ class Cave
          @NumberOfCave=0
          @Arrows=0
          @Sprays=0
+         
      end
      def DoorsAvaiable(north, south, east, west)
          ShowDoorNorth(north)
