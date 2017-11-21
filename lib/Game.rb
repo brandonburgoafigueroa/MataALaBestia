@@ -157,18 +157,22 @@ class Game
         if (sentido=="norte" && AcutalCaveHasNorth())
             @PosPerson[1]=@PosPerson[1]-1
             AddArrows()
+            AddSprays()
         end
         if (sentido=="sud" && AcutalCaveHasSouth())
             @PosPerson[1]=@PosPerson[1]+1
             AddArrows()
+            AddSprays()
         end
         if (sentido=="este" && AcutalCaveHasEast())
             @PosPerson[0]=@PosPerson[0]+1
             AddArrows()
+            AddSprays()
         end
         if (sentido=="oeste" && AcutalCaveHasWest())
             @PosPerson[0]=@PosPerson[0]-1
             AddArrows()
+            AddSprays()
         end
     end
     
