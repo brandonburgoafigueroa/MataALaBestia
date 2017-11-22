@@ -32,4 +32,8 @@ Scenario:
 Scenario:
             Given   Visito la pagina del juego
             Then    deberia mostrar el mensaje "Flechas: "
+Scenario:
+            Given   Visito la pagina del juego
+            Then    deberia mostrar el mensaje "Monedas: "
+            
 

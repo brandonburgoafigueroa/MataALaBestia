@@ -19,6 +19,10 @@ class Game
         @PosBat[0]=posX
         @PosBat[1]=posY
     end
+    def setPosWaterWell(posX,posY)
+        @PosWaterWell[0]=posX
+        @PosWaterWell[1]=posY
+    end
     def setPosPerson(posX,posY)
         @PosPerson[0]=posX
         @PosPerson[1]=posY
@@ -195,7 +199,7 @@ class Game
         @PosMonster=GetRandomCave()
     end
     def MoveBat()
-        if(@TurnCount==10)
+        if(@TurnCount==3)
             @PosBat=GetRandomCave()
             @TurnCount=0
         else

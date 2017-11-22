@@ -19,13 +19,14 @@ describe Map do
         @map.CreateCave(0, 1)
         expect(@map.SetStartPersonPos(0, 1)).to eq "Personaje agregado"
     end
-    it "Si añado una murcielago en la posicion 0,1 y " do
-        @map.CreateCave(0, 1)
-        expect(@map.SetStartPersonPos(0, 1)).to eq "Personaje agregado"
-    end
-    it "Si añado una cueva en la posicion 0,1 y le asigno el Muscielago y no se ha añadido uno antes muestra el mensaje Monstruo agregado" do
+    
+    it "Si añado una cueva en la posicion 0,1 y le asigno el Murcielago y no se ha añadido uno antes muestra el mensaje Murcielago agregado" do
         @map.CreateCave(0, 1)
         expect(@map.SetStartBatPos(0, 1)).to eq "Murcielago agregado"
+    end
+    it "Si añado una cueva en la posicion 0,1 y le asigno el Pozo y no se ha añadido uno antes muestra el mensaje Pozo agregado" do
+        @map.CreateCave(0, 1)
+        expect(@map.SetStartWaterWellPos(0, 1)).to eq "Pozo agregado"
     end
     it "Si añado una cueva en la posicion 0,1, le asigno 3 flechas y saco las flechas que tiene esa cueva y vuelvo a sacar las flechas deberia devolver 0" do
         @map.CreateCave(0, 1)
