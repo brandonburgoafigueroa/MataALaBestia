@@ -80,6 +80,12 @@ post '/LanzarAlSud' do
     
     erb :Juego
 end
+post '/LanzarSprayAlSud' do
+    @SleepBat=$game.ThrowSprayToSouth()
+    @Trow=$game.HasSprays()
+    
+    erb :Juego
+end
 
 get '/LanzarAlNorte' do
     erb :Juego
@@ -91,7 +97,12 @@ post '/LanzarAlNorte' do
  
     erb :Juego
 end
-
+post '/LanzarSprayAlNorte' do
+    @SleepBat=$game.ThrowSprayToNorth()
+    @Trow=$game.HasSprays()
+    
+    erb :Juego
+end
 get '/LanzarAlEste' do
     erb :Juego
 end
@@ -99,6 +110,12 @@ end
 post '/LanzarAlEste' do
     @KillMonster=$game.ThrowArrowToEast()
     @Trow=$game.HasArrows()
+    
+    erb :Juego
+end
+post '/LanzarSprayAlEste' do
+    @SleepBat=$game.ThrowSprayToEast()
+    @Trow=$game.HasSprays()
     
     erb :Juego
 end
@@ -111,5 +128,11 @@ post '/LanzarAlOeste' do
     @KillMonster=$game.ThrowArrowToWest()
     @Trow=$game.HasArrows()
   
+    erb :Juego
+end
+post '/LanzarSprayAlOeste' do
+    @SleepBat=$game.ThrowSprayToWest()
+    @Trow=$game.HasSprays()
+    
     erb :Juego
 end

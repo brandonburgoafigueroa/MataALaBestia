@@ -35,10 +35,25 @@ class Game
             return false
         end
     end
+    def ThrowSprayToNorth()
+        if (@Sprays>0)
+            @Sprays=@Sprays-1;
+            @PosSpray=[@PosPerson[0],@PosPerson[1]]
+            if ThisPositionHasCave(@PosSpray[0], @PosSpray[1])
+                @PosSpray[1]=@PosSpray[0]-1
+                if TheBatIsAsleep(@PosSpray)
+                    return true
+                end 
+            end
+            return false
+        end  
+    end
     def TheMonsterIsDied(pos)
         return pos==@PosMonster
     end
-    
+    def TheBatIsAsleep(pos)
+        return pos==@PosBat
+    end
     def ThrowArrowToSouth()
         if (@Arrows>0)
             @Arrows=@Arrows-1;
@@ -53,6 +68,19 @@ class Game
             return false
         end
        
+    end
+    def ThrowSprayToSouth()
+        if (@Sprays>0)
+            @Sprays=@Sprays-1;
+            @PosSpray=[@PosPerson[0],@PosPerson[1]]
+            if ThisPositionHasCave(@PosSpray[0], @PosSpray[1])
+                @PosSpray[1]=@PosSpray[1]+1
+                if TheBatIsAsleep(@PosSpray)
+                    return true
+                end 
+            end
+            return false
+        end  
     end
     def ThrowArrowToEast()
         if (@Arrows>0)
@@ -69,6 +97,19 @@ class Game
         end
         
     end
+    def ThrowSprayToEast()
+        if (@Sprays>0)
+            @Sprays=@Sprays-1;
+            @PosSpray=[@PosPerson[0],@PosPerson[1]]
+            if ThisPositionHasCave(@PosSpray[0], @PosSpray[1])
+                @PosSpray[0]=@PosSpray[0]-1
+                if TheBatIsAsleep(@PosSpray)
+                    return true
+                end 
+            end
+            return false
+        end  
+    end
     def ThrowArrowToWest()
         if (@Arrows>0)
             @Arrows=@Arrows-1;
@@ -81,8 +122,20 @@ class Game
             end
             @map.AddArrowsToCave(@PosArrow[0]-1, @PosArrow[1]+1, 1)
             return false
-        end
-        
+        end  
+    end
+    def ThrowSprayToWest()
+        if (@Sprays>0)
+            @Sprays=@Sprays-1;
+            @PosSpray=[@PosPerson[0],@PosPerson[1]]
+            if ThisPositionHasCave(@PosSpray[0], @PosSpray[1])
+                @PosSpray[0]=@PosSpray[0]+1
+                if TheBatIsAsleep(@PosSpray)
+                    return true
+                end 
+            end
+            return false
+        end  
     end
 
     def GetRandomCave()
@@ -177,7 +230,7 @@ class Game
             AddSprays()
         end
     end
-    
+
     def ShowActualNumberOfCave
         return @map.GetNumberCaveOfPos(@PosPerson[0], @PosPerson[1])
     end
