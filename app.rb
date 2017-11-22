@@ -3,7 +3,7 @@ require './lib/Game.rb'
 
 $game=Game.new
 $game.StartDefault()
-
+@SleepBat=false
 
 get '/' do
     erb :PantallaPrincipal
@@ -82,7 +82,6 @@ post '/LanzarAlSud' do
 end
 post '/LanzarSprayAlSud' do
     @SleepBat=$game.ThrowSprayToSouth()
-    @Trow=$game.HasSprays()
     
     erb :Juego
 end
@@ -99,7 +98,7 @@ post '/LanzarAlNorte' do
 end
 post '/LanzarSprayAlNorte' do
     @SleepBat=$game.ThrowSprayToNorth()
-    @Trow=$game.HasSprays()
+
     
     erb :Juego
 end
@@ -115,7 +114,7 @@ post '/LanzarAlEste' do
 end
 post '/LanzarSprayAlEste' do
     @SleepBat=$game.ThrowSprayToEast()
-    @Trow=$game.HasSprays()
+   
     
     erb :Juego
 end
@@ -132,7 +131,5 @@ post '/LanzarAlOeste' do
 end
 post '/LanzarSprayAlOeste' do
     @SleepBat=$game.ThrowSprayToWest()
-    @Trow=$game.HasSprays()
-    
     erb :Juego
 end

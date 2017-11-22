@@ -157,9 +157,13 @@
     <p>
         Flechas: <%=$game.QuantityArrows();%>
     </p>
+    
     <p>
         Sprays: <%=$game.QuantitySprays();%>
     </p>
+    <p>
+    Monedas: <%=$game.GetCoins();%>
+</p>
     <p>
         
     </p>
@@ -182,12 +186,16 @@
     <% if $game.IsInTheSamePosWaterWellAndPersonMove()%>
     <br/> Te caiste al pozo
    <%end%>
-      <% if $game.IsBatIsNearOfPerson();%>
+   <% if @SleepBat%>
+   <br/> El murcielago esta dormido
+    <%end%>
+      <% if $game.IsBatIsNearOfPerson()%>
        <br/> Oigo un sonido
       <%end%>
       <% if @move%>
          <br/> El murcielago te movio
     <%end%>
+    
       
       <%if @KillMonster && @Trow%>
        <br/> Mataste al monstruo

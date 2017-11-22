@@ -10,7 +10,8 @@ class Game
         @PosMonster=@map.GetStartPosMonster()
         @PosBat=@map.GetStartPosBat()
         @Arrows=0
-        @Sprays=0
+        @Sprays=0        
+        @Coins=0
     end
     
     def setPosBat(posX,posY)
@@ -28,6 +29,7 @@ class Game
             while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
                 @PosArrow[1]=@PosArrow[1]-1
                 if TheMonsterIsDied(@PosArrow)
+                    SetCoins(100)
                     return true
                 end 
             end
@@ -42,6 +44,7 @@ class Game
             if ThisPositionHasCave(@PosSpray[0], @PosSpray[1])
                 @PosSpray[1]=@PosSpray[0]-1
                 if TheBatIsAsleep(@PosSpray)
+                    SetCoins(10)
                     return true
                 end 
             end
@@ -60,6 +63,7 @@ class Game
             @PosArrow=[@PosPerson[0],@PosPerson[1]]
             while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
                 if TheMonsterIsDied(@PosArrow)
+                    SetCoins(100)
                     return true
                 end 
                 @PosArrow[1]=@PosArrow[1]+1
@@ -76,6 +80,7 @@ class Game
             if ThisPositionHasCave(@PosSpray[0], @PosSpray[1])
                 @PosSpray[1]=@PosSpray[1]+1
                 if TheBatIsAsleep(@PosSpray)
+                    SetCoins(10)
                     return true
                 end 
             end
@@ -89,6 +94,7 @@ class Game
             while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
                 @PosArrow[0]=@PosArrow[0]-1
                 if TheMonsterIsDied(@PosArrow)
+                    SetCoins(100)
                     return true
                 end 
             end
@@ -104,6 +110,7 @@ class Game
             if ThisPositionHasCave(@PosSpray[0], @PosSpray[1])
                 @PosSpray[0]=@PosSpray[0]-1
                 if TheBatIsAsleep(@PosSpray)
+                    SetCoins(10)
                     return true
                 end 
             end
@@ -117,6 +124,7 @@ class Game
             while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
                 @PosArrow[0]=@PosArrow[0]+1
                 if TheMonsterIsDied(@PosArrow)
+                    SetCoins(100)
                     return true
                 end 
             end
@@ -131,6 +139,7 @@ class Game
             if ThisPositionHasCave(@PosSpray[0], @PosSpray[1])
                 @PosSpray[0]=@PosSpray[0]+1
                 if TheBatIsAsleep(@PosSpray)
+                    SetCoins(10)
                     return true
                 end 
             end
@@ -201,6 +210,12 @@ class Game
     end
     def AddSprays()
         @Sprays=@Sprays+ActualCaveGetSprays() 
+    end
+    def GetCoins()
+        return @Coins 
+    end
+    def SetCoins(quantity)
+        @Coins=@Coins+quantity 
     end
     def ActualCaveGetArrows()
         return @map.PickUpArrows(@PosPerson[0], @PosPerson[1])
@@ -307,8 +322,8 @@ class Game
     end
     def IsInTheSamePosBatAndPerson()
                 if (@PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0] || @PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0])  
-                    
                     @PosPerson=GetRandomPerson()
+                    
                     return true
                 end
                 return false
