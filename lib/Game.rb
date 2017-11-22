@@ -12,6 +12,7 @@ class Game
         @Arrows=0
         @Sprays=0        
         @Coins=0
+        @TurnCount=0
     end
     
     def setPosBat(posX,posY)
@@ -192,6 +193,15 @@ class Game
     
     def MoveMonster()
         @PosMonster=GetRandomCave()
+    end
+    def MoveBat()
+        if(@TurnCount==10)
+            @PosBat=GetRandomCave()
+            @TurnCount=0
+        else
+            @TurnCount=@TurnCount+1
+        end
+
     end
     def MoveRandomPerson()
         @PosPerson=GetRandomCave()
