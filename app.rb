@@ -10,11 +10,12 @@ get '/' do
 end
 
 post '/' do
-    erb :PantallaPrincipal
+    mov=params[:mov]
+    $game.changeMovement(mov)
+    erb :Juego
 end
 
 get '/Juego' do
-
     erb :Juego
 end
 

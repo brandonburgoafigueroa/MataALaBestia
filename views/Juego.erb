@@ -1,7 +1,10 @@
-<form method='post' action='/'>
+<form method='get' action='/'>
     <input type='submit' value='Salir del juego'>
     </form>
 
+<div>
+  El movimiento de los monstruos esta <%=$game.theMovementIsActivated()%>
+</div>
 
 <style>
 * {

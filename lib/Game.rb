@@ -2,6 +2,7 @@ require './lib/Map.rb'
 class Game
     def initialize
         @map=Map.new
+        @movement=true
     end
     def StartDefault()
         @map.Default()
@@ -13,9 +14,13 @@ class Game
         @Sprays=0        
         @Coins=0
         @TurnCount=0
-        @movement=true
     end
     def changeMovement(movement)
+        if (movement!="on")
+            movement=false
+        else
+            movement=true
+        end
         @movement=movement
     end
     def theMovementIsActivated()
