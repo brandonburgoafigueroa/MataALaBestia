@@ -13,8 +13,14 @@ class Game
         @Sprays=0        
         @Coins=0
         @TurnCount=0
+        @movement=true
     end
-    
+    def changeMovement(movement)
+        @movement=movement
+    end
+    def theMovementIsActivated()
+        return @movement
+    end
     def setPosBat(posX,posY)
         @PosBat[0]=posX
         @PosBat[1]=posY

@@ -67,4 +67,14 @@ describe Game do
     @game.StartDefault()
     expect(@game.GetCoins()).to eq 0
     end
+    
+    it "Si inicio mapa por defecto y quiero saber si el monstruo y los murcielagos se mueven devuelve true" do
+        @game.StartDefault()
+        expect(@game.theMovementIsActivated()).to eq true
+    end
+    it "Si inicio mapa por defecto, cambio el movimiento a false y quiero saber si el monstruo y los murcielagos se mueven devuelve false" do
+        @game.StartDefault()
+        @game.changeMovement(false)
+        expect(@game.theMovementIsActivated()).to eq false
+    end
 end
