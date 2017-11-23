@@ -27,3 +27,7 @@ end
   When("Presiono el boton {string} y en esa cueva hay {int} flechas") do |string, int|
     click_button(string)
   end
+  Then("en la pagina del juego deberia mostrarme el mensaje {string}") do |string|
+    visit '/Juego'
+    last_response.body.should =~ /#{string}/m
+  end
