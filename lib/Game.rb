@@ -121,13 +121,13 @@ class Game
             @Arrows=@Arrows-1;
             @PosArrow=[@PosPerson[0],@PosPerson[1]]
             while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
-                @PosArrow[0]=@PosArrow[0]-1
+                @PosArrow[0]=@PosArrow[0]+1
                 if TheMonsterIsDied(@PosArrow)
                     SetCoins(100)
                     return true
                 end 
             end
-            @map.AddArrowsToCave(@PosArrow[0]+1, @PosArrow[1], 1)
+            @map.AddArrowsToCave(@PosArrow[0]-1, @PosArrow[1], 1)
             return false
         end
         
@@ -137,7 +137,7 @@ class Game
             @Sprays=@Sprays-1;
             @PosSpray=[@PosPerson[0],@PosPerson[1]]
             if ThisPositionHasCave(@PosSpray[0], @PosSpray[1])
-                @PosSpray[0]=@PosSpray[0]-1
+                @PosSpray[0]=@PosSpray[0]+1
                 if TheBatIsAsleep(@PosSpray)
                     SetCoins(10)
                     return true
@@ -151,13 +151,13 @@ class Game
             @Arrows=@Arrows-1;
             @PosArrow=[@PosPerson[0],@PosPerson[1]]
             while ThisPositionHasCave(@PosArrow[0], @PosArrow[1])
-                @PosArrow[0]=@PosArrow[0]+1
+                @PosArrow[0]=@PosArrow[0]-1
                 if TheMonsterIsDied(@PosArrow)
                     SetCoins(100)
                     return true
                 end 
             end
-            @map.AddArrowsToCave(@PosArrow[0]-1, @PosArrow[1]+1, 1)
+            @map.AddArrowsToCave(@PosArrow[0]+1, @PosArrow[1], 1)
             return false
         end  
     end
@@ -166,7 +166,7 @@ class Game
             @Sprays=@Sprays-1;
             @PosSpray=[@PosPerson[0],@PosPerson[1]]
             if ThisPositionHasCave(@PosSpray[0], @PosSpray[1])
-                @PosSpray[0]=@PosSpray[0]+1
+                @PosSpray[0]=@PosSpray[0]-1
                 if TheBatIsAsleep(@PosSpray)
                     SetCoins(10)
                     return true
