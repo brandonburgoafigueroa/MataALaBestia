@@ -207,15 +207,21 @@ class Game
     end
     
     def MoveMonster()
-        @PosMonster=GetRandomCave()
+        if (@movement)
+            @PosMonster=GetRandomCave()
+        end
+        
     end
     def MoveBat()
-        if(@TurnCount==3)
-            @PosBat=GetRandomCave()
-            @TurnCount=0
-        else
-            @TurnCount=@TurnCount+1
+        if (@movement)
+            if(@TurnCount==3)
+                @PosBat=GetRandomCave()
+                @TurnCount=0
+            else
+                @TurnCount=@TurnCount+1
+            end
         end
+       
 
     end
     def MoveRandomPerson()
