@@ -6,6 +6,7 @@ $game.StartDefault()
 @SleepBat=false
 
 get '/' do
+
     erb :PantallaPrincipal
 end
 
@@ -16,10 +17,12 @@ post '/' do
 end
 
 get '/Juego' do
+
     erb :Juego
 end
 
 post '/Juego' do
+
     erb :Juego
 end
 
