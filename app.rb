@@ -138,3 +138,9 @@ post '/LanzarSprayAlOeste' do
     @SleepBat=$game.ThrowSprayToWest()
     erb :Juego
 end
+
+post '/Salir' do
+    $game=Game.new
+    $game.StartDefault()
+    erb :PantallaPrincipal
+end
