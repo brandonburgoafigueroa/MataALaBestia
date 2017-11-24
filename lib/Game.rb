@@ -10,6 +10,7 @@ class Game
         @PosWaterWell=@map.GetStartPosWeaterWell()
         @PosMonster=@map.GetStartPosMonster()
         @PosBat=@map.GetStartPosBat()
+        @BatIsSleep=false
         @Arrows=0
         @Sprays=0        
         @Coins=0
@@ -70,8 +71,17 @@ class Game
     def TheMonsterIsDied(pos)
         return pos==@PosMonster
     end
+    def SleepBat(sleep)
+        @BatIsSleep=sleep
+    end
     def TheBatIsAsleep(pos)
+        SleepBat(pos==@PosBat)
         return pos==@PosBat
+    end
+    def WakeUpBat()
+        if (@BatIsSleep && @PosPerson!=@PosBat)
+            @BatIsSleep=false
+        end
     end
     def ThrowArrowToSouth()
         if (@Arrows>0)
@@ -228,7 +238,7 @@ class Game
         @PosPerson=GetRandomCave()
     end
     def MoveRandomPerson()
-        @PosPerson=GetRandomPerson
+       @PosPerson=GetRandomPerson
     end
     def QuantityArrows()
         return @Arrows
@@ -259,21 +269,25 @@ class Game
             @PosPerson[1]=@PosPerson[1]-1
             AddArrows()
             AddSprays()
+            WakeUpBat()
         end
         if (sentido=="sud" && AcutalCaveHasSouth())
             @PosPerson[1]=@PosPerson[1]+1
             AddArrows()
             AddSprays()
+            WakeUpBat()
         end
         if (sentido=="este" && AcutalCaveHasEast())
             @PosPerson[0]=@PosPerson[0]+1
             AddArrows()
             AddSprays()
+            WakeUpBat()
         end
         if (sentido=="oeste" && AcutalCaveHasWest())
             @PosPerson[0]=@PosPerson[0]-1
             AddArrows()
             AddSprays()
+            WakeUpBat()
         end
     end
 
@@ -352,13 +366,14 @@ class Game
         
     end
     def IsInTheSamePosBatAndPerson()
+      if (!@BatIsSleep)
                 if (@PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0] || @PosBat[1]==@PosPerson[1] && @PosBat[0]==@PosPerson[0])  
                     @PosPerson=GetRandomPerson()
                     
                     return true
                 end
                 return false
-
+            end
     end
     def ThisPositionHasCave(posx, posy)
         return @map.HasCave(posx, posy)
