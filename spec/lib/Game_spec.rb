@@ -77,4 +77,16 @@ describe Game do
         @game.changeMovement(false)
         expect(@game.theMovementIsActivated()).to eq false
     end
+    it "Si inicio mapa por defecto, los murcielagos comienzan en la posicion 0, 3 y hago mas de 10 movimientos la posicion de los muercielagos deberia ser diferente a 0,3" do
+    @game.StartDefault()
+    @game.MovePerson("sud")
+    @game.MovePerson("norte")
+    @game.MovePerson("sud")
+    @game.MovePerson("norte")
+    @game.MovePerson("sud")
+    @game.MovePerson("norte")
+    @game.MovePerson("sud")
+    @game.MovePerson("norte")
+    expect(@game.getPosBat()).not_to eq [0, 3]
+    end
 end

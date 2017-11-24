@@ -42,6 +42,9 @@ class Game
         @PosPerson[0]=posX
         @PosPerson[1]=posY
     end
+    def getPosBat()
+        return @PosBat
+    end
     def TrowArrowToNorth()
         if (@Arrows>0)
             @Arrows=@Arrows-1;
