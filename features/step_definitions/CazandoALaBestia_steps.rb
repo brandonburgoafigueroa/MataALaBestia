@@ -35,3 +35,10 @@ end
     check(string)
   end
   
+
+  Given("Visito la pagina del juego y hay un pozo cerca") do
+    visit '/Juego'
+  end
+  Then("Deberia mostrarme la pantalla principal") do
+    visit '/'
+  end
