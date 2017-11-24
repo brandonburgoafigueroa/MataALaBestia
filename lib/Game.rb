@@ -16,6 +16,9 @@ class Game
         @Coins=0
         @TurnCount=0
     end
+    def IsTheBatSleepActually()
+        return @BatIsSleep
+    end
     def changeMovement(movement)
         if (movement!="on")
             movement=false
@@ -59,7 +62,7 @@ class Game
             @Sprays=@Sprays-1;
             @PosSpray=[@PosPerson[0],@PosPerson[1]]
             if ThisPositionHasCave(@PosSpray[0], @PosSpray[1])
-                @PosSpray[1]=@PosSpray[0]-1
+                @PosSpray[1]=@PosSpray[1]-1
                 if TheBatIsAsleep(@PosSpray)
                     SetCoins(10)
                     return true
@@ -224,7 +227,7 @@ class Game
     end
     def MoveBat()
         if (@movement)
-            if(@TurnCount==3)
+            if(@TurnCount==10)
                 @PosBat=GetRandomCave()
                 @TurnCount=0
             else

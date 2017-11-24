@@ -192,7 +192,7 @@
    <% if @SleepBat%>
    <br/> El murcielago esta dormido
     <%end%>
-      <% if $game.IsBatIsNearOfPerson()%>
+      <% if $game.IsBatIsNearOfPerson() && !$game.IsTheBatSleepActually()%>
        <br/> Oigo un sonido
       <%end%>
       <% if @move%>
