@@ -31,3 +31,7 @@ end
     visit '/Juego'
     last_response.body.should =~ /#{string}/m
   end
+  When("habilito la opcion de {string}") do |string|
+    check(string)
+  end
+  
