@@ -3,12 +3,17 @@ require './lib/Game.rb'
 
 $game=Game.new
 $game.StartDefault()
+@SleepBat=false
+
 get '/' do
+
     erb :PantallaPrincipal
 end
 
 post '/' do
-    erb :PantallaPrincipal
+    mov=params[:mov]
+    $game.changeMovement(mov)
+    erb :Juego
 end
 
 get '/Juego' do
@@ -17,6 +22,7 @@ get '/Juego' do
 end
 
 post '/Juego' do
+
     erb :Juego
 end
 
@@ -27,6 +33,9 @@ end
 post '/AlSud' do
     $game.MovePerson("sud")
     $game.MoveMonster()
+    $game.MoveBat()    
+    @move=$game.IsInTheSamePosBatAndPerson()
+    @weaterwell=$game.IsInTheSamePosWaterWellAndPersonMove()
     erb :Juego
 end
 
@@ -37,6 +46,9 @@ end
 post '/AlNorte' do
     $game.MovePerson("norte")
     $game.MoveMonster()
+    $game.MoveBat()
+    @move=$game.IsInTheSamePosBatAndPerson()
+    @weaterwell=$game.IsInTheSamePosWaterWellAndPersonMove()
     erb :Juego
 end
 
@@ -47,6 +59,9 @@ end
 post '/AlEste' do
     $game.MovePerson("este")
     $game.MoveMonster()
+    $game.MoveBat()    
+    @move=$game.IsInTheSamePosBatAndPerson()
+    @weaterwell=$game.IsInTheSamePosWaterWellAndPersonMove()
     erb :Juego
 end
 
@@ -57,6 +72,9 @@ end
 post '/AlOeste' do
     $game.MovePerson("oeste")
     $game.MoveMonster()
+    $game.MoveBat()    
+    @move=$game.IsInTheSamePosBatAndPerson()
+    @weaterwell=$game.IsInTheSamePosWaterWellAndPersonMove()
     erb :Juego
 end
 
@@ -67,6 +85,12 @@ end
 post '/LanzarAlSud' do
     @KillMonster=$game.ThrowArrowToSouth()
     @Trow=$game.HasArrows()
+    
+    erb :Juego
+end
+post '/LanzarSprayAlSud' do
+    @SleepBat=$game.ThrowSprayToSouth()
+    
     erb :Juego
 end
 
@@ -77,9 +101,15 @@ end
 post '/LanzarAlNorte' do
     @KillMonster=$game.TrowArrowToNorth()
     @Trow=$game.HasArrows()
+ 
     erb :Juego
 end
+post '/LanzarSprayAlNorte' do
+    @SleepBat=$game.ThrowSprayToNorth()
 
+    
+    erb :Juego
+end
 get '/LanzarAlEste' do
     erb :Juego
 end
@@ -87,6 +117,13 @@ end
 post '/LanzarAlEste' do
     @KillMonster=$game.ThrowArrowToEast()
     @Trow=$game.HasArrows()
+    
+    erb :Juego
+end
+post '/LanzarSprayAlEste' do
+    @SleepBat=$game.ThrowSprayToEast()
+   
+    
     erb :Juego
 end
 
@@ -97,5 +134,16 @@ end
 post '/LanzarAlOeste' do
     @KillMonster=$game.ThrowArrowToWest()
     @Trow=$game.HasArrows()
+  
     erb :Juego
+end
+post '/LanzarSprayAlOeste' do
+    @SleepBat=$game.ThrowSprayToWest()
+    erb :Juego
+end
+
+post '/Salir' do
+    $game=Game.new
+    $game.StartDefault()
+    erb :PantallaPrincipal
 end

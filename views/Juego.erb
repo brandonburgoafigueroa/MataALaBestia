@@ -1,7 +1,10 @@
-<form method='post' action='/'>
+<form method='post' action='/Salir'>
     <input type='submit' value='Salir del juego'>
     </form>
 
+<div>
+  El movimiento de los monstruos esta <%=$game.theMovementIsActivated()%>
+</div>
 
 <style>
 * {
@@ -48,13 +51,16 @@
       <tr>
         <td></td>
         <td align='center'>
-        <% if $game.GetDoors()[0] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
+        <% if $game.GetDoors()[0] && $game.IsTheSamePosMonsterAndPerson()==false && $game.IsInTheSamePosWaterWellAndPersonMove()==false && !@KillMonster; %>
          <form method='post' action='/AlNorte'>
            <input type='submit' value='Ir al norte' align='center'</td>
          </form>
           <form method='post' action='/LanzarAlNorte'>
            <input type='submit' value='Lanzar Flecha Al Norte'</td>
          </form>
+         <form method='post' action='/LanzarSprayAlNorte'>
+         <input type='submit' value='Lanzar Spray Al Norte'</td>
+       </form>
         <%else%>
           <form method='post' action='/AlNorte'>
             <input type='submit' disabled value='Ir al norte'</td>
@@ -62,19 +68,25 @@
           <form method='post' action='/LanzarAlNorte'>
            <input type='submit' disabled value='Lanzar Flecha Al Norte'</td>
          </form>
+         <form method='post' action='/LanzarSprayAlNorte'>
+         <input type='submit' disabled value='Lanzar Spray Al Norte'</td>
+       </form>
         <% end %>
         </td>
         <td></td>
       </tr>
       <tr>
         <td align='center'>
-        <% if $game.GetDoors()[3] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
+        <% if $game.GetDoors()[3] && $game.IsTheSamePosMonsterAndPerson()==false && $game.IsInTheSamePosWaterWellAndPersonMove()==false && !@KillMonster; %>
          <form method='post' action='/AlOeste'>
            <input type='submit' value='Ir al oeste'</td>
           </form>
           <form method='post' action='/LanzarAlOeste'>
            <input type='submit' value='Lanzar Flecha Al Oeste'</td>
           </form>
+          <form method='post' action='/LanzarSprayAlOeste'>
+          <input type='submit' value='Lanzar Spray Al Oeste'</td>
+        </form>
         <%else%>
           <form method='post' action='/AlNorte'>
             <input type='submit' disabled value='Ir al oeste'</td>
@@ -82,16 +94,22 @@
           <form method='post' action='/LanzarAlNorte'>
             <input type='submit' disabled value='Lanzar Flecha Al Oeste'</td>
           </form>
+          <form method='post' action='/LanzarSprayAlNorte'>
+          <input type='submit' disabled value='Lanzar Spray Al Oeste'</td>
+        </form>
         <% end %>
         </td>
         <td></td>
         <td align='center'>
-        <% if $game.GetDoors()[2] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
+        <% if $game.GetDoors()[2] && $game.IsTheSamePosMonsterAndPerson()==false && $game.IsInTheSamePosWaterWellAndPersonMove()==false && !@KillMonster; %>
           <form method='post' action='/AlEste'>
             <input type='submit' value='Ir al este'</td>
           </form>
            <form method='post' action='/LanzarAlEste'>
             <input type='submit' value='Lanzar Flecha Al Este'</td>
+          </form>
+          <form method='post' action='/LanzarSprayAlEste'>
+            <input type='submit' value='Lanzar Spray Al Este'</td>
           </form>
           <%else%>
             <form method='post' action='/AlEste'>
@@ -100,17 +118,23 @@
             <form method='post' action='/LanzarAlEste'>
               <input type='submit' disabled value='Lanzar Flecha Al Este'</td>
             </form>
+            <form method='post' action='/LanzarSprayAlEste'>
+            <input type='submit' disabled value='Lanzar Spray Al Este'</td>
+          </form>
           <% end %>
         </td>
       </tr>
       <tr>
         <td></td>
         <td align='center'>
-          <% if $game.GetDoors()[1] && $game.IsTheSamePosMonsterAndPerson()==false && !@KillMonster; %>
+          <% if $game.GetDoors()[1] && $game.IsTheSamePosMonsterAndPerson()==false && $game.IsInTheSamePosWaterWellAndPersonMove()==false && !@KillMonster; %>
             
             <form method='post' action='/LanzarAlSud'>
               <input type='submit' value='Lanzar Flecha Al Sud'</td>
             </form>
+            <form method='post' action='/LanzarSprayAlSud'>
+            <input type='submit' value='Lanzar Spray Al Sud'</td>
+          </form>
             <form method='post' action='/AlSud'>
               <input type='submit' value='Ir al sud'</td>
             </form>
@@ -121,6 +145,9 @@
              <form method='post' action='/AlSud'>
               <input type='submit' disabled value='Ir al sud'</td>
             </form>
+            <form method='post' action='/LanzarSprayAlSud'>
+            <input type='submit' disabled value='Lanzar Spray Al Sud'</td>
+          </form>
           <% end %>
               
         <td></td>
@@ -136,6 +163,13 @@
     <p>
         Flechas: <%=$game.QuantityArrows();%>
     </p>
+    
+    <p>
+        Sprays: <%=$game.QuantitySprays();%>
+    </p>
+    <p>
+    Monedas: <%=$game.GetCoins();%>
+</p>
     <p>
         
     </p>
@@ -147,15 +181,32 @@
     <h2>Mensajes:</h2>
     <p>
       <% if $game.IsNearTheMonster();%>
-        Siento un olor
+      <br/>  Siento un olor
+      <%end%>
+      <% if $game.IsNearTheWeaterWell();%>
+      <br/>  Siento una brisa
       <%end%>
       <% if $game.IsTheSamePosMonsterAndPerson();%>
-        El monstruo te atrapo
+     <br/> El monstruo te atrapo
+    <%end%>
+    <% if $game.IsInTheSamePosWaterWellAndPersonMove()%>
+    <br/> Te caiste al pozo
+   <%end%>
+   <% if @SleepBat%>
+   <br/> El murcielago esta dormido
+    <%end%>
+      <% if $game.IsBatIsNearOfPerson() && !$game.IsTheBatSleepActually()%>
+       <br/> Oigo un sonido
       <%end%>
+      <% if @move%>
+         <br/> El murcielago te movio
+    <%end%>
+    
+      
       <%if @KillMonster && @Trow%>
-        Mataste al monstruo
+       <br/> Mataste al monstruo
         <% elsif @Trow %>
-        La flecha choco contra la pared
+        <br/>La flecha choco contra la pared
         <%end%>
     </p>
   </div>
